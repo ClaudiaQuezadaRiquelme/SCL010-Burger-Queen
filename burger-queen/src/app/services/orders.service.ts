@@ -7,4 +7,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class OrdersService {
 
   constructor(  private firestore: AngularFirestore  ) { }
+
+  getProductList () {
+    return this.firestore.collection("products").snapshotChanges();
+  }
 }

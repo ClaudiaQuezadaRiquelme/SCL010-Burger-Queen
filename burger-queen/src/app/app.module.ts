@@ -9,10 +9,12 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 import { OrdersService } from "./services/orders.service";
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
