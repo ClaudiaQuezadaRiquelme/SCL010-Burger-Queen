@@ -22,7 +22,16 @@ export class ProductListComponent implements OnInit {
   this.ordersService.getProductList()
   .subscribe(res => (this.products = res));
 
-  handleClick(event: Event, data) {
+  showBreakfastMenu() {
+    //let breakfastID = angular.element(document.querySelector('#myID'));//DOESN`T WORK
+
+  }
+
+  showTraditionalMenu() {
+
+  }
+
+  pushProduct(event: Event, data) {
     this.arrayOfProducts.push(data);
     console.log('array of products: ',this.arrayOfProducts);
   }

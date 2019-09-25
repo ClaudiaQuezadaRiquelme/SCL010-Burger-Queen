@@ -1,7 +1,8 @@
-<tbody>
-    <tr *ngFor="let product of products">
-       <td><button (click)="handleClick($event, product.payload.doc.data())" >{{ product.payload.doc.data().name }}</button></td>
-       <td> ${{ product.payload.doc.data().price }}</td>
-    </tr>
-</tbody>
-<button (click)="saveData($event)" >Send to Firestore</button>
+<div class="menuContainer">
+    <div class="chooseMenu">
+        <div class="btnChooseMenu" id="BreakfastMenu" (click)="showBreakfastMenu()">Menú Desayuno</div>
+        <div class="btnChooseMenu" id="TraditionalMenu" (click)="showTraditionalMenu()">Menú Tradicional</div>
+    </div>
+    <div class="btnMenu" *ngFor="let product of products" (click)="pushProduct($event, product.payload.doc.data())" >{{ product.payload.doc.data().name }}</div>
+    </div>
+<div class="btnSendOrder" (click)="saveData($event)" >Send to Firestore</div>
