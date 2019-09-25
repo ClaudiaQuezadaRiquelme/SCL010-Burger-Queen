@@ -1,6 +1,6 @@
 <tbody>
     <tr *ngFor="let product of products">
-       <td><button>{{ product.payload.doc.data().name }}</button></td>
+       <td><button (click)="handleClick($event, product.payload.doc.data())" >{{ product.payload.doc.data().name }}</button></td>
        <td> ${{ product.payload.doc.data().price }}</td>
     </tr>
 </tbody>
