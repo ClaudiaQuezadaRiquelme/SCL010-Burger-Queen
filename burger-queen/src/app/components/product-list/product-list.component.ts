@@ -23,12 +23,14 @@ export class ProductListComponent implements OnInit {
   .subscribe(res => (this.products = res));
 
   handleClick(event: Event, data) {
-    console.log('Click mouse!', data);
-    console.log(data.name);
     this.arrayOfProducts.push(data);
-    console.log('array of products:');
-    
-    console.log(this.arrayOfProducts);
+    console.log('array of products: ',this.arrayOfProducts);
+  }
+
+  saveData(event: Event) {
+    console.log("saveData ");
+    console.log("saveData Type", typeof(this.arrayOfProducts));
+    this.ordersService.saveProductsOrders(this.arrayOfProducts, "NOMBRE PROVISORIO");
     
   }
 }
