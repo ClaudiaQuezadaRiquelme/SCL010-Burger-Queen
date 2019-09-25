@@ -1,0 +1,17 @@
+navbar-brand>img {
+    width: 100% \9; 
+    max-width: 10%;
+}
+
+.bg-dark{
+    background: whitesmoke !important;
+}
+
+.cLink{
+    font-size: 1.5em;
+    color: rgb(112, 108, 108) !important;
+    font-family: 'Henny Penny', cursive;
+    background: white;
+    border-radius: 2%;
+    margin-right: 4%;
+}
