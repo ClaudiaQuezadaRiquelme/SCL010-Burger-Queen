@@ -1,8 +1,14 @@
 <div class="menuContainer">
     <div class="chooseMenu">
-        <div class="btnChooseMenu" id="BreakfastMenu" (click)="showBreakfastMenu()">Menú Desayuno</div>
-        <div class="btnChooseMenu" id="TraditionalMenu" (click)="showTraditionalMenu()">Menú Tradicional</div>
+        <div class="btn btnChooseMenu" id="BreakfastMenu" (click)="showBreakfastMenu($event)">Menú Desayuno</div>
+        <div class="btn btnChooseMenu" id="TraditionalMenu" (click)="showTraditionalMenu($event)">Menú Tradicional</div>
     </div>
-    <div class="btnMenu" *ngFor="let product of products" (click)="pushProduct($event, product.payload.doc.data())" >{{ product.payload.doc.data().name }}</div>
+</div>
+    <div *ngIf="breakfastBool"  >
+            <div *ngFor="let product of breakfast" class="btn btnMenu" (click)="pushProduct($event, product)" >{{ product.name }}</div>
     </div>
+    <div *ngIf="!breakfastBool"  >
+            <div *ngFor="let product of traditional" class="btn btnMenu" (click)="pushProduct($event, product)" >{{ product.name }}</div>
+    </div>
+
 <div class="btnSendOrder" (click)="saveData($event)" >Send to Firestore</div>

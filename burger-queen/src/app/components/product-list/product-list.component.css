@@ -7,7 +7,6 @@
 
 
 .btnMenu{
-    display: none;/*none and then, flex*/
     justify-content: center;
     align-items: center;
     color: whitesmoke;
@@ -24,7 +23,6 @@
 }
 
 .btnSendOrder {
-    display: none;/*none and then, flex*/
     justify-content: center;
     align-items: center;
     color: whitesmoke;
