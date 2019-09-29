@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="./styles.css">
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script> -->
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
@@ -22,9 +22,12 @@
 </head>
 
 <body>
-
+<!-- ya está definido en environment.ts 
+por eso arroja esta advertencia: arroja esta advertencia @firebase/app: 
+// Warning: Firebase is already defined in the global scope. Please make sure
+// Firebase library is only loaded once.-->
   <!-- Firebase Settings Script -->
-  <script>
+  <!-- <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
       apiKey: "AIzaSyD6rrUVDPngfY-hD8o49zXZIaAxojnjjMA",
@@ -37,7 +40,7 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-  </script>
+  </script> -->
 
  
   <app-root></app-root>

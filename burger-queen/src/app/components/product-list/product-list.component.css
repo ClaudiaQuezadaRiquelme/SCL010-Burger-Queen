@@ -18,8 +18,8 @@
     line-height: 1em;
     font-weight: bolder;
     background: #000;
-    width: 25%;
-    height: 40px;
+    /* width: 25%;
+    height: 40px; */
 }
 
 .btnSendOrder {
