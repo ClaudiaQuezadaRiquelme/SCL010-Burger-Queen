@@ -52,6 +52,9 @@ body{
     color: #172121;
 }
 
+.orderDetails, .orderStatus {
+    vertical-align: middle;
+}
 
 .list-group-item.active{
     border: 2px solid #FFCE09;
