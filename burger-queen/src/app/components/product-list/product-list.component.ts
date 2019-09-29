@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { OrdersService } from "../../services/orders.service";
-import { InputOrderService } from "../../services/input-order.service";
 
 import {Product} from './../../models/products';
 
@@ -21,13 +20,7 @@ export class ProductListComponent implements OnInit {
   arrayOfProducts:object[] = [];
   breakfastBool:boolean = false;
 
-  constructor(
-    private ordersService:OrdersService,
-    private inputOrderService:InputOrderService,
-  ) {
-       this.customerName = this.inputOrderService.getClientName();
-       //console.log('this.customerName : ', this.customerName);
-     }
+  constructor(private ordersService:OrdersService,) {}
 
   ngOnInit() {
     this.getProducts();

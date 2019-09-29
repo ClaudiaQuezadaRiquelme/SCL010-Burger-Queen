@@ -21,11 +21,14 @@ export class OrdersService {
 
   //reactive form property
   form = new FormGroup({
-    customerName: new FormControl(''),
     orderId: new FormControl(''),
-    order: new FormControl(''),
+    customerName: new FormControl(''),
+    itemsOfOrder: new FormControl(''),
     status: new FormControl('')
   })
+
+
+  
 
   
   constructor(private firebase: AngularFirestore) { 
@@ -76,6 +79,11 @@ export class OrdersService {
           err => reject(err));
     });
 }
+
+getOrdersInService() { 
+  return this.firebase.collection("orders").snapshotChanges();
+}
+
 //no funciona aún, sólo muestra por consola lo que trae, no sé cómo acceder a esos items aún
 filterBreakfastItems(){
   console.log('is reaching the service item filtering: breakfast');
@@ -95,5 +103,15 @@ filterTraditionalItems(){
   console.log('is reaching the service item filtering: traditional');
 
 }
+
+updateOrder(data) {
+  return this.firebase.collection("orders").doc(data.payload.doc.id).set({ completed: true }, { merge: true });
+}
+
+deleteOrder(data) {
+  return this.firebase.collection("orders").doc(data.payload.doc.id).delete();
+
+}
+
 
 }
