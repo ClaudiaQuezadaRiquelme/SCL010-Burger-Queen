@@ -8,10 +8,12 @@ navbar-brand>img {
 }
 
 .cLink{
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: rgb(112, 108, 108) !important;
-    font-family: 'Henny Penny', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
     background: white;
     border-radius: 2%;
     margin-right: 4%;
+   
 }

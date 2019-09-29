@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Client } from './../models/client';
 import { AngularFirestore } from '@angular/fire/firestore';
+// import {Product} from './../models/products';
 
 
 
@@ -8,6 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class InputOrderService {
+  // productArray:Array<Product>;
 
   constructor(private firestore: AngularFirestore) { }
 
