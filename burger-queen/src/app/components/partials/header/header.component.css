@@ -1,5 +1,5 @@
 .headerStripe{
-    font-family: 'Poppins', sans-serif;
+    /*font-family: 'Poppins', sans-serif;*/
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -18,8 +18,8 @@
 .placingTitle{
     font-size: 2em;
     color: #DEB615 !important;
-    font-family: 'Henny Penny', cursive;
+    /*font-family: 'Poppins', cursive;*/
     border:solid 4px #333;
-   padding: 2% 7%;
+    padding: 2% 7%;
     
 }
