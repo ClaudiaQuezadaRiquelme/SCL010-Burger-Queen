@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { OrdersService } from "../../services/orders.service";
+import { InputOrderService } from "../../services/input-order.service";
 
 @Component({
   selector: 'app-product-list',
@@ -8,14 +10,21 @@ import { OrdersService } from "../../services/orders.service";
 })
 export class ProductListComponent implements OnInit {
 
+  customerName:string = '';
+
   arrayOfProducts:object[] = [];
   breakfastBool:boolean = false;
 
-  constructor(private ordersService:OrdersService) { }
+  constructor(
+    private ordersService:OrdersService,
+    private inputOrderService: InputOrderService
+    ) {
+       this.customerName = this.inputOrderService.getClientName();
+       //console.log('this.customerName : ', this.customerName);
+     }
 
   ngOnInit() {
     this.getProducts();
-    
   }
 
   products;
@@ -58,7 +67,7 @@ export class ProductListComponent implements OnInit {
 
   saveData(event: Event) {
     //console.log("saveData ");
-    this.ordersService.saveProductsOrders(this.arrayOfProducts, "NOMBRE PROVISORIO");
+    this.ordersService.saveProductsOrders(this.arrayOfProducts, this.customerName);
     
   }
 }

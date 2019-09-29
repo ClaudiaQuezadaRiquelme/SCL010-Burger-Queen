@@ -1,4 +1,5 @@
 <div class="menuContainer">
+    <p *ngIf="customerName">Seleccionar productos para {{ customerName }}</p>
     <div class="chooseMenu">
         <div class="btn btnChooseMenu" id="BreakfastMenu" (click)="showBreakfastMenu($event)">Menú Desayuno</div>
         <div class="btn btnChooseMenu" id="TraditionalMenu" (click)="showTraditionalMenu($event)">Menú Tradicional</div>

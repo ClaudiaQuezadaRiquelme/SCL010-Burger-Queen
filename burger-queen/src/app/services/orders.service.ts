@@ -20,7 +20,7 @@ export class OrdersService {
     })
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
-      //te recomiendo guardar el id en caso de que hayan clientes con el mismo nombre
+      //te recomiendo guardar el id en caso de que hayan clientes con el mismo nombre => no lo pude guardar
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);
