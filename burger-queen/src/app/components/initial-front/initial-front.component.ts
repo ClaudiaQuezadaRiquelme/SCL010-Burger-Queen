@@ -1,3 +1,6 @@
+
+// <THIS COMPONENT MANAGES THE INITIAL APP FRONT VIEW LOGIC 
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

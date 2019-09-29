@@ -1,3 +1,5 @@
+/* THIS COMPONENT MANAGES THE MENU --MEANING THE PRODUCT ITEMS TO SELECT LOGIC */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

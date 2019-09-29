@@ -1,3 +1,5 @@
+/* THIS CSS COMPONENT MANAGES THE FIRST STEP IN CREATING THE ORDER: THE CLIENT NAME INPUT PHASE  */
+
 .btnComponent {
   display: flex;
   flex-direction: column;

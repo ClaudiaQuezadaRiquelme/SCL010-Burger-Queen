@@ -1,3 +1,5 @@
+// THIS COMPONENT MANAGES THE FIRST STEP IN CREATING THE ORDER: THE CLIENT NAME INPUT PHASE LOGIC
+
 import { Component, OnInit, Input } from '@angular/core';
 import { InputOrderService } from './../../services/input-order.service';
 import { Client } from './../../models/client';

@@ -1,3 +1,6 @@
+ /* THIS COMPONENT MANAGES THE ORDER (ONE SINGLE ORDER) LOGIC */
+
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

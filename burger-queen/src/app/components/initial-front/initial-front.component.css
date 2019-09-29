@@ -1,3 +1,6 @@
+/* <!-- THIS CSS COMPONENT MANAGES THE INITIAL APP FRONT VIEW --> */
+
+
 .appPrincipal{
     display: flex;
     justify-content: space-around;
