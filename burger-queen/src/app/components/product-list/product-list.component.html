@@ -1,27 +1,10 @@
 <div class="container menuContainer">
   <div class="row">
-    <div class="col-12">
-      <div class="chooseMenu">
-        <div class="btn btnChooseMenu" id="BreakfastMenu" (click)="showBreakfastMenu($event)">Menú Desayuno</div>
-        <div class="btn btnChooseMenu" id="TraditionalMenu" (click)="showTraditionalMenu($event)">Menú Tradicional</div>
-      </div>
-
-      <div *ngIf="breakfastBool">
-        <div *ngFor="let product of breakfast" class="btn btnMenu" (click)="pushProduct($event, product)">
-          {{ product.name }}
-        </div>
-      </div>
-      <div *ngIf="!breakfastBool">
-        <div *ngFor="let product of traditional" class="btn btnMenu" (click)="pushProduct($event, product)">
-          {{ product.name }}
-        </div>
-      </div>
-      <div class="btnSendOrder" (click)="saveData($event)">Send to Firestore</div>
-    </div>
+    
     <!-- creating reactive form to use buttons for adding products -->
     <div class="col-12">
-      <button (click)="bringOnlyBreakfast()" class="btn btnMenu">Seleccionar Menú Desayuno</button>
-      <button (click)="bringOnlyTraditional()" class="btn btnMenu">Seleccionar Menú Tradicional</button>
+      <button (click)="bringOnlyBreakfast()" class="btn btn-dark m-2">Seleccionar Menú Desayuno</button>
+      <button (click)="bringOnlyTraditional()" class="btn btn-dark m-2">Seleccionar Menú Tradicional</button>
     </div>
 
     <div class="col-12">
@@ -30,9 +13,20 @@
           type="text" class="form-control">
         <input placeholder="Nombre del Cliente" formControlName="customerName" type="text"
           class="form-control">
-        <button *ngFor="let item of items" class="btn btn-warning m-2" (click)="addItem(item)">
-          {{item.name}}
-        </button>
+        <div *ngIf="breakfastBool">
+          <span *ngFor="let item of items">
+            <button *ngIf='item.menu == "Breakfast"'  class="btn btn-warning m-2" (click)="addItem(item)">
+              {{item.name}}
+            </button>
+          </span>
+        </div>
+        <div class="container" *ngIf="traditionalBool">
+          <span *ngFor="let item of items">
+            <button *ngIf='item.menu == "Traditional"'  class="btn btn-warning m-2" (click)="addItem(item)">
+                {{item.name}}
+            </button>
+          </span>
+        </div>
 
         <ul class="list-group">
           <li *ngFor="let item of itemsOfOrder">

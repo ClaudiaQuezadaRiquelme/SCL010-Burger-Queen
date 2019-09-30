@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
 
   arrayOfProducts:object[] = [];
   breakfastBool:boolean = false;
+  traditionalBool:boolean = false;
 
   constructor(private ordersService:OrdersService,) {}
 
@@ -94,12 +95,26 @@ onSubmit(){
 }
 
 bringOnlyBreakfast(){
-  this.breakfastItems = this.ordersService.filterBreakfastItems();
-  console.log('listening to bring only the breakfast type of products');
+  this.breakfastBool = true;
+  this.traditionalBool = false;
 }
 
+// bringOnlyBreakfast(){
+//   this.breakfastBool = true;
+//   this.traditionalBool = false;
+//   this.breakfastItems = this.ordersService.filterBreakfastItems();
+//   console.log('listening to bring only the breakfast type of products');
+// }
+
 bringOnlyTraditional(){
-  this.ordersService.filterTraditionalItems();
-  console.log('listening to bring only the traditional type of products');
+  this.traditionalBool = true;
+  this.breakfastBool = false;
 }
+
+// bringOnlyTraditional(){
+//   this.traditionalBool = true;
+//   this.breakfastBool = false;
+//   this.ordersService.filterTraditionalItems();
+//   console.log('listening to bring only the traditional type of products');
+// }
 }
