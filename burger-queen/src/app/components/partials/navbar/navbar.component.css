@@ -10,9 +10,9 @@ navbar-brand>img {
 .cLink{
     font-size: 1.2em;
     color: rgb(112, 108, 108) !important;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
     font-weight: bold;
-    background: white;
+    /* background: white; */
     border-radius: 2%;
     margin-right: 4%;
    

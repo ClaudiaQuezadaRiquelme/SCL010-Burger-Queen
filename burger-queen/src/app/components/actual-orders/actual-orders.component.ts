@@ -1,8 +1,9 @@
- /* THIS COMPONENT MANAGES THE ORDER (ONE SINGLE ORDER) LOGIC */
+/* THIS COMPONENT MANAGES THE ORDER (ONE SINGLE ORDER) LOGIC */
 
 
 import { Component, OnInit } from '@angular/core';
-import {OrdersService} from './../../services/orders.service';
+import { OrdersService } from './../../services/orders.service';
+import { OrderModel } from './../../models/orders';
 
 @Component({
   selector: 'app-actual-orders',
@@ -10,10 +11,27 @@ import {OrdersService} from './../../services/orders.service';
   styleUrls: ['./actual-orders.component.css']
 })
 export class ActualOrdersComponent implements OnInit {
-
-  constructor(private ordersService:OrdersService) { }
+  // ordersInQueue: OrderModel[];
+  ordersInQueue: any[];
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit() {
+    this.getOrders();
   }
+
+  getOrders = () =>
+    this.ordersService
+      .getOrdersInService()
+      .subscribe(res => (this.ordersInQueue = res));
+
+
+  markCompleted(data) {
+    this.ordersService.updateOrder(data);
+  }
+
+  deleteOrder(data) {
+    this.ordersService.deleteOrder(data);
+  }
+
 
 }

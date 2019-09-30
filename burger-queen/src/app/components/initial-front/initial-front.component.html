@@ -1,49 +1,26 @@
 <!-- THIS HTML COMPONENT MANAGES THE INITIAL APP FRONT VIEW -->
 
 <div class="container-fluid appPrincipal">
-        <div class="btnComponentWrapper">
-            <div class="btn btnComponent">
-                <p routerLink="/orders">VER ÓRDENES EN CURSO</p>
-            </div>
-            <div class="btn btnComponent">
-                <p routerLink="/ingresar">INGRESAR PEDIDO</p>
-            </div>
-        </div>
-        <div class="queueOrdersWrapper">
-            <div class="orderDetails">
-                <ul class="list-group orderUList">
-                    <li class="list-group-item active">Resumen de Órdenes en Curso</li>
+  <div class="row">
 
-                    <li class="list-group-item">
-                        <p>
-                            <span class="nameInQueueOrder">Natalia &nbsp</span>
-                            <span class="orderNumberInQueueOrder">/&nbsp39485886</span>&nbsp/
-                            <span class="priceInQueueOrder">&nbsp9,990 CLP</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>
-                            <span class="nameInQueueOrder">Jorge &nbsp</span>
-                            <span class="orderNumberInQueueOrder">/&nbsp3555556</span>&nbsp/
-                            <span class="priceInQueueOrder">&nbsp4,990 CLP</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>
-                            <span class="nameInQueueOrder">Shakti &nbsp</span>
-                            <span class="orderNumberInQueueOrder">/&nbsp39287786</span>&nbsp/
-                            <span class="priceInQueueOrder">&nbsp12,990 CLP</span>
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="orderStatus">
+    <div class="col-3">
+      <div class="btn btnComponent">
+        <p routerLink="/orders">VER ÓRDENES EN CURSO</p>
+      </div>
+      <div class="btn btnComponent">
+        <p routerLink="/ingresar">INGRESAR ORDEN</p>
+      </div>
+    </div>
+    <div class="col-6 m-2">
+      <app-actual-orders></app-actual-orders>
+    </div>
+    <!-- <div class="orderStatus">
             <ul class="list-group">
                 <li class="list-group-item active">Estado de la orden</li>
                 <li class="list-group-item status readyToDeliver"><p>Lista</p></li>
                 <li class="list-group-item status stillCooking"><p>En Curso</p></li>
                 <li class="list-group-item status stillCooking"><p>En Curso</p></li>
             </ul>
-        </div>
-    </div>
+        </div> -->
+  </div>
+</div>

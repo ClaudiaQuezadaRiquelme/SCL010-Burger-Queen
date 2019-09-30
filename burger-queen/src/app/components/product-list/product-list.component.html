@@ -1,7 +1,6 @@
 <div class="container menuContainer">
   <div class="row">
     <div class="col-12">
-      <p *ngIf="customerName">Seleccionar productos para {{ customerName }}</p>
       <div class="chooseMenu">
         <div class="btn btnChooseMenu" id="BreakfastMenu" (click)="showBreakfastMenu($event)">Menú Desayuno</div>
         <div class="btn btnChooseMenu" id="TraditionalMenu" (click)="showTraditionalMenu($event)">Menú Tradicional</div>
@@ -17,25 +16,24 @@
           {{ product.name }}
         </div>
       </div>
-
       <div class="btnSendOrder" (click)="saveData($event)">Send to Firestore</div>
     </div>
     <!-- creating reactive form to use buttons for adding products -->
     <div class="col-12">
-            <button (click)="bringOnlyBreakfast()" class="btn btnMenu">Seleccionar Menú Desayuno</button>
-            <button (click)="bringOnlyTraditional()" class="btn btnMenu">Seleccionar Menú Tradicional</button>
+      <button (click)="bringOnlyBreakfast()" class="btn btnMenu">Seleccionar Menú Desayuno</button>
+      <button (click)="bringOnlyTraditional()" class="btn btnMenu">Seleccionar Menú Tradicional</button>
     </div>
-    
+
     <div class="col-12">
       <form [formGroup]="this.ordersService.form">
-        <input placeholder="TODO Order Number in the future will be coming from firebase id" formControlName="orderId"
+        <input placeholder=" TODO // OrderId" formControlName="orderId"
           type="text" class="form-control">
-        <input placeholder="TODO This name must be from the input clientName" formControlName="customerName" type="text"
+        <input placeholder="Nombre del Cliente" formControlName="customerName" type="text"
           class="form-control">
         <button *ngFor="let item of items" class="btn btn-warning m-2" (click)="addItem(item)">
           {{item.name}}
         </button>
-      
+
         <ul class="list-group">
           <li *ngFor="let item of itemsOfOrder">
             <span class="list-group-item"> {{ item.name }} </span>
