@@ -1,1 +1,60 @@
- /* THIS CSS COMPONENT MANAGES THE ORDER (ONE SINGLE ORDER) STYLES */
+ /* THIS CSS COMPONENT MANAGES THE ORDERS (ALL ORDERS) STYLES */
+/* <!-- THIS CSS COMPONENT MANAGES THE INITIAL APP FRONT VIEW --> */
+
+
+.appPrincipal{
+   background: #FFCE09;
+    border-bottom-left-radius: 20%;
+    min-height: 400px;
+    padding-top:2%;
+}
+
+.appPCapa2{
+    background: rgb(244, 247, 244);
+}
+
+.far{
+    float: right;
+}
+
+
+
+.queueOrdersWrapper{
+    text-align: center;
+    align-items: center;
+   
+   
+}
+
+
+.orderDetails, .orderStatus {
+    vertical-align: middle;
+}
+
+
+
+
+/*Classes definition to get used y ngClass directive when necessary*/
+
+.readyToDeliver{
+    color: whitesmoke;
+    background: #FFAD09;
+}
+
+.stillCooking{
+    color: #172121;
+    background: whitesmoke;
+}
+
+.table-striped{
+    font-weight: bold;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td{
+    background-color:rgba(255,173,9, 0.5);
+ }
+
+ .table-striped>tbody>tr:nth-child(even)>td {
+   background-color:rgba(255,206,9, 0.5);
+    
+ }

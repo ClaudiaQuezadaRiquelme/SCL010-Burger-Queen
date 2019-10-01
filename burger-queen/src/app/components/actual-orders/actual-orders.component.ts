@@ -12,12 +12,14 @@ import { OrderModel } from './../../models/orders';
 })
 export class ActualOrdersComponent implements OnInit {
   // ordersInQueue: OrderModel[];
+  deliveredOrders:any[]=[];
   ordersInQueue: any[];
   constructor(private ordersService: OrdersService) { }
 
   ngOnInit() {
     // this.ordersInQueue = this.ordersService.getOrdersInService();
     this.getOrders();
+    this.getDeliveredOrders();
   }
 
   getOrders = () =>
@@ -26,12 +28,19 @@ export class ActualOrdersComponent implements OnInit {
       .subscribe(res => (this.ordersInQueue = res));
 
 
-  markCompleted(data) {
+  markCompleted = (data) => {
     this.ordersService.updateOrder(data);
   }
 
-  deleteOrder(data) {
+  deleteOrder = (data) => {
     this.ordersService.deleteOrder(data);
+  }
+
+  getDeliveredOrders = () =>{
+   this.ordersService.getOnlyDeliveredOrders().subscribe(a=>{
+      this.deliveredOrders.push(a);
+    });
+    console.log(this.deliveredOrders);
   }
 
   

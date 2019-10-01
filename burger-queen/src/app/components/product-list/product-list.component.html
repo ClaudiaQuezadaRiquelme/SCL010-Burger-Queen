@@ -11,8 +11,7 @@
       <form [formGroup]="this.ordersService.form">
         <!-- <input placeholder=" TODO // OrderId" formControlName="orderId"
           type="text" class="form-control"> -->
-        <input placeholder="Nombre del Cliente" formControlName="customerName" type="text"
-          class="form-control">
+        
         <div *ngIf="breakfastBool">
           <span *ngFor="let item of items">
             <button *ngIf='item.menu == "Breakfast"'  class="btn btn-warning m-2" (click)="addItem(item)">
@@ -20,6 +19,8 @@
             </button>
           </span>
         </div>
+        <input placeholder="Nombre del Cliente" formControlName="customerName" type="text"
+          class="form-control">
         <div class="container" *ngIf="traditionalBool">
           <span *ngFor="let item of items">
             <button *ngIf='item.menu == "Traditional"'  class="btn btn-warning m-2" (click)="addItem(item)">
@@ -29,13 +30,14 @@
         </div>
 
         <ul class="list-group">
-          <li *ngFor="let item of itemsOfOrder">
-            <span class="list-group-item"> {{ item.name }} </span>
-            <i (click)="removeItem(item)" class="far fa-trash-alt"></i>
+          <li class="list-group-item" *ngFor="let item of itemsOfOrder">
+            <span class="list-group-item"> {{ item.name }} 
+            <i (click)="removeItem(item)" class="far fa-trash-alt"></i></span>
           </li>
         </ul>
   <h5>Costo total de la orden: {{ totalOrderCost | currency:'CLP ':'symbol' }}</h5>
-        <button class="btn btn-success m-2" (click)="onSubmit()">Send Order to Kitchen</button>
+        <button class="btn btn-success m-2" (click)="onSubmit()">Enviar a cocina</button>
+        <button class="btn btn-danger m-2" (click)="calculateTimeElapsed()">Simular orden entregada</button>
       </form>
     </div>
   </div>

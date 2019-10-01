@@ -18,6 +18,8 @@ import { NavbarComponent } from './components/partials/navbar/navbar.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { MenuBoardComponent } from './components/menu-board/menu-board.component';
 import { ActualOrdersComponent } from './components/actual-orders/actual-orders.component';
+import { KitchenOrdersComponent } from './components/kitchen-orders/kitchen-orders.component';
+import { SingleOrderComponent } from './components/single-order/single-order.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { ActualOrdersComponent } from './components/actual-orders/actual-orders.
     HeaderComponent,
     MenuBoardComponent,
     ActualOrdersComponent,
+    KitchenOrdersComponent,
+    SingleOrderComponent,
   ],
   imports: [
     BrowserModule,

@@ -104,6 +104,7 @@ onSubmit(){
      .then(res => {
          console.log('is done');
      });
+  this.ordersService.setOrderInitialTime();
 }
 
 bringOnlyBreakfast(){
@@ -129,4 +130,9 @@ bringOnlyTraditional(){
 //   this.ordersService.filterTraditionalItems();
 //   console.log('listening to bring only the traditional type of products');
 // }
+
+calculateTimeElapsed(){
+  this.ordersService.getDeliveredOrderTime;
+  console.log(this.ordersService.getOrderTimeElapsed());
+}
 }

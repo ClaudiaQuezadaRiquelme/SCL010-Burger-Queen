@@ -23,6 +23,8 @@ export class OrdersService {
   orders: Observable<OrderModel[]>;
   orderDoc:AngularFirestoreDocument<OrderModel>;
   orderCost:number;
+  initialTimeOrder:number=0;
+  testingTime:number=0;
 
   breakfastCollection:Observable<Product[]>;
 
@@ -88,16 +90,16 @@ export class OrdersService {
     });
 }
 
+//Brings all orders
 getOrdersInService() { 
   return this.firebase.collection("orders").snapshotChanges();
-  // return this.firebase.collection("orders").snapshotChanges().pipe(
-  //   map(changes => changes.map(a => {
-  //     const data = a.payload.doc.data() as Product;
-  //     const id = a.payload.doc.id;
-  //     return { id, ...data };
-  //   }))
-  // );
 }
+
+//Brings orders different than delivered
+getOnlyDeliveredOrders(){
+  return this.firebase.collection("orders", ref => ref.where('status', '==', "delivered")).snapshotChanges();
+}
+
 
 //no funciona aún, sólo muestra por consola lo que trae, no sé cómo acceder a esos items aún
 filterBreakfastItems(){
@@ -123,24 +125,28 @@ updateOrder(data) {
   return this.firebase.collection("orders").doc(data.payload.doc.id).set({ completed: true }, { merge: true });
 }
 
+bringOneOrder(data, theId){
+  return this.firebase.collection('orders').doc(data.payload.doc.theId);
+}
+
 deleteOrder(data) {
   return this.firebase.collection("orders").doc(data.payload.doc.id).delete();
 
 }
 
-calcOrderCost(){
-  let total:number;
-  this.firebase.collection<OrderModel>('orders').snapshotChanges().pipe(
-    map(changes => changes.map(a => {
-      const orderItems = a.payload.doc.data().itemsOfOrder;
-      orderItems.forEach(b=>{
-        total += b.price;
-      })
-      return total;
-    }))
-  );
+setOrderInitialTime(){
+  return this.initialTimeOrder = new Date().getTime();
+}
+
+getDeliveredOrderTime(){
+  return this.testingTime = new Date().getTime();
 
 }
 
+getOrderTimeElapsed(){
+
+  return (this.initialTimeOrder - this.testingTime)/60000;
+
+}
 
 }
