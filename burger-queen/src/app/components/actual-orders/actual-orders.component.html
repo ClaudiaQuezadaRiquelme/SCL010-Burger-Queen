@@ -1,36 +1,35 @@
 <!-- THIS HTML COMPONENT MANAGES THE ORDER (ONE SINGLE ORDER) VIEW -->
-
-<table class="table table-striped table-dark">
-  <tr>
-    <th>Identificador de Orden</th>
+<h4>Órdenes recientes</h4>
+<table class="table">
+  <tr colspan="3">
     <th>Cliente</th>
-    <th>Estado</th>
-    <th>Productos</th>
-    <th>Eliminar Orden</th>
-    <th>Marcar como entregada</th>
-    
+    <th>Identificador de orden</th>
+    <th>Monto total de la orden</th>
+    <!-- <th>Eliminar Orden</th>
+    <th>Marcar como entregada</th> -->
+    <th>Estado de la Orden</th>
   </tr>
   <tbody>
-    <tr *ngFor="let order of ordersInQueue">
-      <td>{{ order.payload.doc.data().orderId }}</td>
-      <td>{{ order.payload.doc.data().customerName }}</td>
-      <td>{{ order.payload.doc.data().status }}</td>
-      <td><span *ngFor="let item of order.payload.doc.data().itemsOfOrder">
+    <tr colspan="3" *ngFor="let order of ordersInQueue">
+      <td class="customerNameTd">{{ order.payload.doc.data().customerName }}</td>
+      <td class="orderIdTd">{{ order.payload.doc.id }}</td>
+      <td class="orderTotalTd">{{ order.payload.doc.data().cost | currency:'CLP ':'symbol' }}</td>
+      <td class="orderTotalTd">{{ order.payload.doc.data().status}}</td>
+      <!-- <td class="orderTotalTd">{{ order.payload.doc.data().status }}</td> -->
+      <!-- <td><span *ngFor="let item of order.payload.doc.data().itemsOfOrder">
           {{ item.name }} //
         </span>
-      </td>
+      </td> -->
       <td>
-          <i (click)="deleteOrder(order)" class="far fa-trash-alt"></i>
-        </td>
-      <td [hidden]="order.payload.doc.data().completed">
+        <i (click)="deleteOrder(order)" class="far fa-trash-alt"></i>
+      </td>
+      <!-- <td [hidden]="order.payload.doc.data().completed">
         <input type="checkbox" (change)="markCompleted(order)">
         <span *ngIf="order.payload.doc.data().completed">
           Orden entregada
         </span>
-      </td>
-      
+      </td> -->
+
     </tr>
   </tbody>
 </table>
-
-   

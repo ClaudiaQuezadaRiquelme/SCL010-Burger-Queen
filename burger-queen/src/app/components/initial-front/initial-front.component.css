@@ -2,13 +2,16 @@
 
 
 .appPrincipal{
-    /* display: flex; */
-    /* justify-content: space-around; */
-    /* align-items: flex-start; */
+   
     background: rgb(244, 247, 244);
-    /* border-bottom-left-radius: 20%; */
+    border-bottom-left-radius: 20%;
     min-height: 400px;
     padding-top:2%;
+}
+
+.appPCapa2{
+    background: #FFCE09;
+    border-bottom-left-radius: 20%;
 }
 
 
@@ -32,17 +35,19 @@
     font-weight: bolder;
     background: #FFAD09;
     width: 100%;
-    /* height: 40px; */
+    border: solid 4pt whitesmoke;
+    transition-duration: 1s;
+    transition:background;
+}
+
+.btnComponent:hover{
+    background: #DEB615;
 }
 
 .queueOrdersWrapper{
     text-align: center;
-    /* justify-content: center;
-    display: flex;
-    flex-direction: column; */
     align-items: center;
-    /* margin-right:25%; */
-    /* width: 500px; */
+   
    
 }
 

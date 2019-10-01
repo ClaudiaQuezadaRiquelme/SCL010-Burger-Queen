@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from './../models/products';
+import {OrderModel} from './../models/orders';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,15 @@ export class OrdersService {
   orderArray: Array<Product>;
   item: Product;
   itemsCollection: AngularFirestoreCollection<Product>;
-  orderCollection: AngularFirestoreCollection<Product[]>;
   items: Observable<Product[]>;
   itemDoc: AngularFirestoreDocument<Product>;
+
+  singleOrder: OrderModel;
+  orderCollection: AngularFirestoreCollection<Product[]>;
+  orders: Observable<OrderModel[]>;
+  orderDoc:AngularFirestoreDocument<OrderModel>;
+  orderCost:number;
+
   breakfastCollection:Observable<Product[]>;
 
   //reactive form property
@@ -24,7 +31,8 @@ export class OrdersService {
     orderId: new FormControl(''),
     customerName: new FormControl(''),
     itemsOfOrder: new FormControl(''),
-    status: new FormControl('')
+    status: new FormControl(''),
+    cost: new FormControl('')
   })
 
 
@@ -82,6 +90,13 @@ export class OrdersService {
 
 getOrdersInService() { 
   return this.firebase.collection("orders").snapshotChanges();
+  // return this.firebase.collection("orders").snapshotChanges().pipe(
+  //   map(changes => changes.map(a => {
+  //     const data = a.payload.doc.data() as Product;
+  //     const id = a.payload.doc.id;
+  //     return { id, ...data };
+  //   }))
+  // );
 }
 
 //no funciona aún, sólo muestra por consola lo que trae, no sé cómo acceder a esos items aún
@@ -110,6 +125,20 @@ updateOrder(data) {
 
 deleteOrder(data) {
   return this.firebase.collection("orders").doc(data.payload.doc.id).delete();
+
+}
+
+calcOrderCost(){
+  let total:number;
+  this.firebase.collection<OrderModel>('orders').snapshotChanges().pipe(
+    map(changes => changes.map(a => {
+      const orderItems = a.payload.doc.data().itemsOfOrder;
+      orderItems.forEach(b=>{
+        total += b.price;
+      })
+      return total;
+    }))
+  );
 
 }
 

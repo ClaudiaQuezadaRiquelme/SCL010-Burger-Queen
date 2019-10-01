@@ -17,3 +17,14 @@ navbar-brand>img {
     margin-right: 4%;
    
 }
+
+.appNavbar{
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    width: 120%;
+ 
+}

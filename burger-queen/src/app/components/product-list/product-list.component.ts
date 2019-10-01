@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
 
   items:Product[];
   itemsOfOrder:Product[]=[];
+  totalOrderCost:number=0;
   breakfastItems:any;
 
   customerName:string = '';
@@ -76,16 +77,27 @@ export class ProductListComponent implements OnInit {
 
   //adding and removing products of the kind Product to itemsOrder
 
-  addItem = item => this.itemsOfOrder.push(item);
+  addItem = (item)=>{
+    this.itemsOfOrder.push(item);
+    this.totalOrderCost += item.price;
+    console.log(item.price);
+    console.log(this.totalOrderCost);
+  }
+
   
   removeItem = item => {
     let index = this.itemsOfOrder.indexOf(item);
-    if (index > -1) this.itemsOfOrder.splice(index, 1);
+    if (index > -1) {
+      this.itemsOfOrder.splice(index, 1);
+      this.totalOrderCost -= item.price;
+    };
 };
   
 onSubmit(){
   console.log('is submitting');
   this.ordersService.form.value.itemsOfOrder = this.itemsOfOrder;
+  this.ordersService.form.value.status = 'enCocina';
+  this.ordersService.form.value.cost = this.totalOrderCost;
   let datta = this.ordersService.form.value;
   
  this.ordersService.createOrder(datta)

@@ -9,8 +9,8 @@
 
     <div class="col-12">
       <form [formGroup]="this.ordersService.form">
-        <input placeholder=" TODO // OrderId" formControlName="orderId"
-          type="text" class="form-control">
+        <!-- <input placeholder=" TODO // OrderId" formControlName="orderId"
+          type="text" class="form-control"> -->
         <input placeholder="Nombre del Cliente" formControlName="customerName" type="text"
           class="form-control">
         <div *ngIf="breakfastBool">
@@ -34,6 +34,7 @@
             <i (click)="removeItem(item)" class="far fa-trash-alt"></i>
           </li>
         </ul>
+  <h5>Costo total de la orden: {{ totalOrderCost | currency:'CLP ':'symbol' }}</h5>
         <button class="btn btn-success m-2" (click)="onSubmit()">Send Order to Kitchen</button>
       </form>
     </div>

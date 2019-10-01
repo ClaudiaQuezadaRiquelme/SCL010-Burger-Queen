@@ -16,6 +16,7 @@ export class ActualOrdersComponent implements OnInit {
   constructor(private ordersService: OrdersService) { }
 
   ngOnInit() {
+    // this.ordersInQueue = this.ordersService.getOrdersInService();
     this.getOrders();
   }
 
@@ -33,5 +34,6 @@ export class ActualOrdersComponent implements OnInit {
     this.ordersService.deleteOrder(data);
   }
 
+  
 
 }

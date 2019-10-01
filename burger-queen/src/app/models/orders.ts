@@ -6,5 +6,6 @@ export interface OrderModel{
     itemsOfOrder:Product[];
     status:string;
     completed:boolean;
+    cost: number;
 }
 
