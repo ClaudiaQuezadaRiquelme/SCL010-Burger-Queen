@@ -28,67 +28,21 @@ export class ProductListComponent implements OnInit {
   };
   showKindOfBurger:boolean = false;
 
-  arrayOfProducts:object[] = [];
   breakfastBool:boolean = false;
   traditionalBool:boolean = false;
 
   constructor(private ordersService:OrdersService,) {}
 
   ngOnInit() {
-    this.getProducts();
     this.ordersService. getMenuItemsFromFS().subscribe(itemsComing=>{
       this.items=itemsComing;
     })
   }
 
-  products;
-  breakfast:object[] = [];
-  traditional:object[] = [];
-
-  getProducts = () =>
-  this.ordersService.getProductList()
-  .subscribe(res => {
-    this.products = res;
-    //console.log("this.products[0]", this.products[0].payload.doc.data());
-    for (let i=0; i<this.products.length; i++) {
-      if (this.products[i].payload.doc.data().menu == "Breakfast") {
-        this.breakfast.push(this.products[i].payload.doc.data());
-        //console.log("breakfast: ", this.breakfast);
-        
-      } else {
-        this.traditional.push(this.products[i].payload.doc.data());
-        //console.log("traditional: ", this.traditional);
-        
-      }
-    }
-    
-  })
-
-  showBreakfastMenu(event: Event) {
-    //console.log('breakfast : ',this.breakfast);
-    this.breakfastBool = true;
-  }
-
-  showTraditionalMenu(event: Event) {
-    //console.log('traditional : ',this.traditional);
-    this.breakfastBool = false;
-  }
-
-  pushProduct(event: Event, data) {
-    this.arrayOfProducts.push(data);
-    //console.log('array of products: ',this.arrayOfProducts);
-  }
-
-  saveData(event: Event) {
-    //console.log("saveData ");
-    this.ordersService.saveProductsOrders(this.arrayOfProducts, this.customerName);
-    
-  }
-
   //adding and removing products of the kind Product to itemsOrder
 
   changeKindOfBurger = (kindOfBurger:string) => {
-    let burggger:Product = {
+    let burger:Product = {
       menu: this.burgerItem.menu,
       name: this.burgerItem.name,
       price: this.burgerItem.price,
@@ -96,7 +50,7 @@ export class ProductListComponent implements OnInit {
     }
     this.showKindOfBurger = false;
     this.burgerItem.type = kindOfBurger;
-    this.addItem(burggger);//si pongo this.addItem(this.burgerItem), cada vez que agregue una hamburguesa con un tipo distinto, todas las hamburguesas cambiarán su tipo. Ejemplo: si elijo una beef y después una veg, ambas hamburguesas serán veg. Si elijo una beef, una veg y una chicken, las 3 hamburguesas serán chicken
+    this.addItem(burger);//si pongo this.addItem(this.burgerItem), cada vez que agregue una hamburguesa con un tipo distinto, todas las hamburguesas cambiarán su tipo. Ejemplo: si elijo una beef y después una veg, ambas hamburguesas serán veg. Si elijo una beef, una veg y una chicken, las 3 hamburguesas serán chicken
   }
 
   addItem = (item)=>{
@@ -159,24 +113,10 @@ bringOnlyBreakfast(){
   this.traditionalBool = false;
 }
 
-// bringOnlyBreakfast(){
-//   this.breakfastBool = true;
-//   this.traditionalBool = false;
-//   this.breakfastItems = this.ordersService.filterBreakfastItems();
-//   console.log('listening to bring only the breakfast type of products');
-// }
-
 bringOnlyTraditional(){
   this.traditionalBool = true;
   this.breakfastBool = false;
 }
-
-// bringOnlyTraditional(){
-//   this.traditionalBool = true;
-//   this.breakfastBool = false;
-//   this.ordersService.filterTraditionalItems();
-//   console.log('listening to bring only the traditional type of products');
-// }
 
 calculateTimeElapsed(){
   this.ordersService.getDeliveredOrderTime;
