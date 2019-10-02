@@ -15,7 +15,7 @@
         <div *ngIf="breakfastBool">
           <span *ngFor="let item of items">
             <button *ngIf='item.menu == "Breakfast"'  class="btn btn-warning m-2" (click)="addItem(item)">
-              {{item.name}}
+              {{item.name}} ${{item.price}}
             </button>
           </span>
         </div>
@@ -24,14 +24,20 @@
         <div class="container" *ngIf="traditionalBool">
           <span *ngFor="let item of items">
             <button *ngIf='item.menu == "Traditional"'  class="btn btn-warning m-2" (click)="addItem(item)">
-                {{item.name}}
+                {{item.name}} ${{item.price}}
             </button>
           </span>
+          <div *ngIf="showKindOfBurger">
+              <p>Tipo de hamburguesa: </p>
+              <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("chicken")'>Pollo</button>
+              <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("beef")'>Vacuno</button>
+              <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("veg")'>Vegano</button>
+          </div>
         </div>
 
         <ul class="list-group">
           <li class="list-group-item" *ngFor="let item of itemsOfOrder">
-            <span class="list-group-item"> {{ item.name }} 
+            <span class="list-group-item"> {{ item.name }} [ {{item.type}} ]
             <i (click)="removeItem(item)" class="far fa-trash-alt"></i></span>
           </li>
         </ul>
