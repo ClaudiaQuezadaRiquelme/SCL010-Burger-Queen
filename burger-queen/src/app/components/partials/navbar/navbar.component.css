@@ -26,5 +26,6 @@ navbar-brand>img {
 
 .navbar-expand-lg .navbar-nav .nav-link {
     width: 120%;
+    flex-flow: wrap;
  
 }

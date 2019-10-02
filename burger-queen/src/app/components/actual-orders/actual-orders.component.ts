@@ -12,14 +12,16 @@ import { OrderModel } from './../../models/orders';
 })
 export class ActualOrdersComponent implements OnInit {
   // ordersInQueue: OrderModel[];
-  deliveredOrders:any[]=[];
+ 
   ordersInQueue: any[];
+
+
   constructor(private ordersService: OrdersService) { }
 
   ngOnInit() {
     // this.ordersInQueue = this.ordersService.getOrdersInService();
     this.getOrders();
-    this.getDeliveredOrders();
+    
   }
 
   getOrders = () =>
@@ -32,15 +34,15 @@ export class ActualOrdersComponent implements OnInit {
     this.ordersService.updateOrder(data);
   }
 
-  deleteOrder = (data) => {
-    this.ordersService.deleteOrder(data);
+  deleteOrder = (id) => {
+    this.ordersService.deleteOrder(id);
   }
 
-  getDeliveredOrders = () =>{
-   this.ordersService.getOnlyDeliveredOrders().subscribe(a=>{
-      this.deliveredOrders.push(a);
-    });
-    console.log(this.deliveredOrders);
+
+  showOrderSingleView = (data, idComing) =>{
+    //call bringOneOrder 
+    this.ordersService.bringOneOrder(data, idComing);
+    console.log('is calling showOrderSingleView, and its id', idComing );
   }
 
   

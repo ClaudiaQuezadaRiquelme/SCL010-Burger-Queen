@@ -1,0 +1,23 @@
+
+<!-- THIS HTML COMPONENT MANAGES DELIVERED ORDERS VIEW -->
+<div class="container-fluid appPrincipal">
+  <h4 class="display-5">Órdenes Entregadas</h4>
+  <div class="row justify-content-center appPCapa2">
+    <table class="table-striped m-1">
+      <tr colspan="3">
+        <th>Cliente</th>
+        <th>Identificador de orden</th>
+        <th>Monto pagado</th>
+        <th>Estado</th>
+      </tr>
+      <tbody>
+        <tr colspan="3" *ngFor="let dOrder of deliveredOrders">
+          <td class="customerNameTd">{{ dOrder.payload.doc.data().customerName }}</td>
+          <td class="orderIdTd">{{ dOrder.payload.doc.id }}</td>
+          <td class="orderTotalTd">{{ dOrder.payload.doc.data().cost | currency:'CLP ':'symbol' }}</td>
+          <td class="orderStatus">{{ dOrder.payload.doc.data().status}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

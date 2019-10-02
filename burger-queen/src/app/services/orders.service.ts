@@ -19,6 +19,7 @@ export class OrdersService {
   itemDoc: AngularFirestoreDocument<Product>;
 
   singleOrder: OrderModel;
+
   orderCollection: AngularFirestoreCollection<Product[]>;
   orders: Observable<OrderModel[]>;
   orderDoc:AngularFirestoreDocument<OrderModel>;
@@ -97,7 +98,8 @@ getOrdersInService() {
 
 //Brings orders different than delivered
 getOnlyDeliveredOrders(){
-  return this.firebase.collection("orders", ref => ref.where('status', '==', "delivered")).snapshotChanges();
+  console.log("este es el tipo de data que viene de las ordenes entregadas en el servicio: ",typeof(this.firebase.collection("orders", ref => ref.where('status', '==', 'delivered')).snapshotChanges()));
+  return this.firebase.collection("orders", ref => ref.where('status', '==', 'delivered')).snapshotChanges();
 }
 
 
@@ -126,11 +128,26 @@ updateOrder(data) {
 }
 
 bringOneOrder(data, theId){
-  return this.firebase.collection('orders').doc(data.payload.doc.theId);
+  console.log('this is the data coming from the single doc en el servicio', data);
+  console.log('this is the id coming from the single doc en el servicio', theId);
+  this.singleOrder = data;
+  console.log("single order: ",this.singleOrder);
+  
+  // return this.firebase.collection('orders').doc(data.payload.doc.theId);
 }
 
-deleteOrder(data) {
-  return this.firebase.collection("orders").doc(data.payload.doc.id).delete();
+bringOneOrderV2(id){
+  console.log('llega hasta bringOneOrderV2')
+  return this.firebase.collection("orders").doc(id);
+}
+
+
+bringKitchenOrders(){
+  return this.firebase.collection("orders", ref => ref.where('status', '==', 'enCocina')).snapshotChanges();
+}
+
+deleteOrder(id) {
+  return this.firebase.collection("orders").doc(id).delete();
 
 }
 

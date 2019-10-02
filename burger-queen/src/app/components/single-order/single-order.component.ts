@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrdersService } from './../../services/orders.service';
 import {OrderModel} from './../../models/orders';
 import {Product} from './../../models/products';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 
@@ -12,18 +14,24 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 })
 export class SingleOrderComponent implements OnInit {
 
-singleOrder:AngularFirestoreDocument;
+singleOrder:any;
 productsToSelect:Product[];
 
-  constructor(private ordersService:OrdersService) { }
+  constructor(private ordersService:OrdersService, private route:ActivatedRoute, private location:Location) { }
 
   ngOnInit() {
+    this.bringTheInterestOrder();
   }
 
-  bringTheInterestOrder =(dataComing, idComing)=>{
-    console.log('Is bringing the interest order');
-    this.singleOrder = this.ordersService.bringOneOrder(dataComing, idComing);
-    console.log("This is single Order: ", this.singleOrder);
+  bringTheInterestOrder =()=>{
+    const id = this.route.snapshot.paramMap.get('id');
+    this.ordersService.bringOneOrderV2(id).snapshotChanges().subscribe(
+      whatComes=>{this.singleOrder = whatComes.payload.data();
+       console.log("whatComes es esto: ", whatComes);
+      }
+      );
+    };
+     
   }
 
-}
+

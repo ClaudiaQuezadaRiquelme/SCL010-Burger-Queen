@@ -20,6 +20,7 @@ import { MenuBoardComponent } from './components/menu-board/menu-board.component
 import { ActualOrdersComponent } from './components/actual-orders/actual-orders.component';
 import { KitchenOrdersComponent } from './components/kitchen-orders/kitchen-orders.component';
 import { SingleOrderComponent } from './components/single-order/single-order.component';
+import { DeliveredOrdersComponent } from './components/delivered-orders/delivered-orders.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SingleOrderComponent } from './components/single-order/single-order.com
     ActualOrdersComponent,
     KitchenOrdersComponent,
     SingleOrderComponent,
+    DeliveredOrdersComponent,
   ],
   imports: [
     BrowserModule,

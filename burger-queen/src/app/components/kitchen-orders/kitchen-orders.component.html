@@ -1,1 +1,25 @@
-<p>kitchen-orders works!</p>
+
+<!-- THIS HTML COMPONENT MANAGES KITCHEN ORDERS VIEW -->
+<div class="container-fluid appPrincipal">
+        <h4 class="display-5">Órdenes Entregadas</h4>
+        <div class="row justify-content-center appPCapa2">
+          <table class="table-striped m-1">
+            <tr colspan="3">
+              <th>Cliente</th>
+              <th>Identificador de orden</th>
+              <th>Productos a preparar</th>
+              <th>Estado</th>
+            </tr>
+            <tbody>
+              <tr colspan="3" *ngFor="let kOrder of ordersBrought">
+                <td class="customerNameTd">{{ kOrder.payload.doc.data().customerName }}</td>
+                <td class="orderIdTd">{{ kOrder.payload.doc.id }}</td>
+                <td class="orderTotalTd"><li *ngFor="let item of kOrder.payload.doc.data().itemsOfOrder">
+                    {{item.name}}
+                </li></td>
+                <td class="orderStatus">{{ kOrder.payload.doc.data().status}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
