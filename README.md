@@ -1,24 +1,21 @@
-# Burger Queen
+# Burger Clown Queens
 
-## Preámbulo
+## Presentación
 
-Nos acaban de enviar un correo con una solicitud para un nuevo proyecto. Hay un
-restaurante que nos ha contactado porque quieren que alguien les construya una
-interfaz donde puedan tomar pedidos usando una tablet.
+Burger Clown Queens es una aplicación diseñada para la gestión de pedidos de vuestra hamburguesería. Permite visualizar el menú, ver el total del pedido mientras se va conformando, cambiar algún elemento del pedido antes de confirmar y enviar a cocina para su preparación. Internamente ordenará los pedidos por tiempo de espera hasta antes de ser entregados, para mantener el compromiso y la experiencia de que nunca queden clientes esperando demasiado tiempo para recibir su orden.
 
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
+** PRIMERA VISTA APP. INSERTE PANTALLAZO AQUI **
 
-Como punto de partida,
-nos comparten el siguiente correo recibido del cliente:
+En una primera vista al cargar la aplicación, podemos observar un resumen de los pedidos en espera y opciones para tomar una orden nueva, ver pedidos en curso y en cocina y visualizar un historial completo de órdenes entregadas.
 
-> Somos **Burguer Queen**, una cadena de comida rápida 24hrs.
->
-> Nuestra propuesta de servicio 24hrs ha tenido muy buena acogida, y para
-> expandirnos necesitamos un sistema que nos ayude a tomar los pedidos de los
-> clientes.
->
-> Tenemos 2 menús: uno para el desayuno, que es bien sencillo:
->
+Si elegimos **ver órdenes en curso**, veremos las órdenes recién ingresadas en cocina y las que están listas para ser entregadas.
+
+** INSERTE IMAGEN DE ÓRDENES EN CURSO AQUÍ **
+
+Para **tomar una orden** elegimos esa opción, ingresamos el nombre del cliente y seleccionamos menú Desayuno o Tradicional. Para mantener la flexibilidad, comprendiendo que los clientes podrían antojarse a las 18:00 de un buen desayuno o darían lo que fuera por una hamburguesa a las 10:00, ambos menús estarán elegibles independiente del horario, permitiendo a quien tome la orden tomar productos fuera de horario mientras sea posible satisfacer el pedido.
+
+El menú desayuno disponible según vuestra hamburguesería es:
+
 > | Item                      |Precio|
 > |---------------------------|------|
 > | Cafe americano            | 500  |
@@ -26,7 +23,8 @@ nos comparten el siguiente correo recibido del cliente:
 > | Sandwich de jamón y queso | 1000 |
 > | Jugo natural              | 700  |
 >
-> Y un menú para el resto del dia:
+
+Y para el resto del día, el menú tradicional:
 >
 > <table width="100%">
 >   <tbody>
@@ -64,9 +62,12 @@ nos comparten el siguiente correo recibido del cliente:
 >
 > Los clientes pueden escoger entre hamburguesas de res, de pollo, o vegetariana.
 > **Y por $500 pueden agregarle queso o huevo.**
->
-> Nuestros clientes son bastante indecisos, por lo que es muy común que cambien el
-> pedido varias veces antes de finalizarlo.
+
+
+
+
+
+
 
 ## Introducción
 
