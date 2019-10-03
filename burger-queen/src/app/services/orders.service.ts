@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+//neccessary import for using the arrayUnion method of firebase
+import * as fb from 'firebase/app';
 import { FormControl, FormGroup } from "@angular/forms";
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -96,6 +98,10 @@ getOrdersInService() {
   return this.firebase.collection("orders").snapshotChanges();
 }
 
+getOrdersByCreationTime(){
+  return this.firebase.collection("orders", ref => ref.orderBy('timestamp', 'asc'));
+}
+
 //Brings orders different than delivered
 getOnlyDeliveredOrders(){
   console.log("este es el tipo de data que viene de las ordenes entregadas en el servicio: ",typeof(this.firebase.collection("orders", ref => ref.where('status', '==', 'delivered')).snapshotChanges()));
@@ -123,8 +129,17 @@ filterTraditionalItems(){
 
 }
 
-updateOrder(data) {
-  return this.firebase.collection("orders").doc(data.payload.doc.id).set({ completed: true }, { merge: true });
+updateOrder(id, data) {
+  return this.firebase.collection("orders").doc(id).update({
+    itemsOfOrder: fb.firestore.FieldValue.arrayUnion(data)
+});
+
+}
+
+deleteItemInOrder(id, data){
+  return this.firebase.collection("orders").doc(id).update({
+    itemsOfOrder: fb.firestore.FieldValue.arrayRemove(data)
+});
 }
 
 bringOneOrder(data, theId){

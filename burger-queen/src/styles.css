@@ -1,1 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
+
+.display-5 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+/* TABLE RELATIVE STYLES */
+
+table {
+  border-collapse: collapse;
+}
+
+.td,
+.th {
+  width: 150px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px
+}
+
+.th{
+    background: rgb(240, 197, 6);
+    color: white;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.customerNameTd {
+  color: #333;
+
+}
+
+.orderIdTd {
+  color: #ffce09;
+}
+
+.orderTotalTd{
+  color: #ffce09;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.table-striped {
+  font-weight: bold;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td {
+  background-color: rgba(236, 227, 209, 0.5);
+}
+
+.table-striped>tbody>tr:nth-child(even)>td {
+  background-color: rgba(241, 231, 187, 0.5);
+}
+
+.appPrincipal {
+  background: #FFCE09;
+  border-bottom-left-radius: 20%;
+  min-height: 400px;
+  padding-top: 2%;
+}
+
+.appPCapa2 {
+  background: rgb(244, 247, 244);
+}
+
+.far {
+  float: right;
+}
+
+
+.queueOrdersWrapper {
+  text-align: center;
+  align-items: center;
+
+}
+
+.orderDetails,
+.orderStatus {
+  vertical-align: middle;
+}
+
+
+/*Classes definition to get used y ngClass directive when necessary*/
+
+.readyToDeliver {
+  color: whitesmoke;
+  background: #FFAD09 !important;
+}
+
+.stillCooking {
+  color: #f7ffff;
+  background: rgb(112, 110, 110) !important;
+}

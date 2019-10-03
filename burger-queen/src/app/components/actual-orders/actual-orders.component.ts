@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from './../../services/orders.service';
 import { OrderModel } from './../../models/orders';
+import { AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-actual-orders',
@@ -14,6 +15,7 @@ export class ActualOrdersComponent implements OnInit {
   // ordersInQueue: OrderModel[];
  
   ordersInQueue: any[];
+  ordersInQueue2: AngularFirestoreCollection;
 
 
   constructor(private ordersService: OrdersService) { }
@@ -21,18 +23,17 @@ export class ActualOrdersComponent implements OnInit {
   ngOnInit() {
     // this.ordersInQueue = this.ordersService.getOrdersInService();
     this.getOrders();
+    console.log(this.ordersInQueue2 = this.ordersService.getOrdersByCreationTime());
     
   }
 
-  getOrders = () =>
+  getOrders = () =>{
     this.ordersService
       .getOrdersInService()
       .subscribe(res => (this.ordersInQueue = res));
+    }
 
-
-  markCompleted = (data) => {
-    this.ordersService.updateOrder(data);
-  }
+  
 
   deleteOrder = (id) => {
     this.ordersService.deleteOrder(id);
@@ -45,6 +46,15 @@ export class ActualOrdersComponent implements OnInit {
     console.log('is calling showOrderSingleView, and its id', idComing );
   }
 
-  
 
+
+  setClass(id, data) {
+    let classes = {
+      'stillCooking': data.status === 'enCocina',
+      'readyToDeliver': data.status === 'delivered'
+    }
+    return classes;
+  }
+
+  
 }
