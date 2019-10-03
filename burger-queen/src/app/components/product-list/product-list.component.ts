@@ -28,39 +28,21 @@ export class ProductListComponent implements OnInit {
   };
   showKindOfBurger:boolean = false;
 
-  arrayOfProducts:object[] = [];
   breakfastBool:boolean = false;
   traditionalBool:boolean = false;
 
   constructor(private ordersService:OrdersService,) {}
 
   ngOnInit() {
-    // this.getProducts();
     this.ordersService. getMenuItemsFromFS().subscribe(itemsComing=>{
       this.items=itemsComing;
     })
   }
 
-  products;
-  breakfast:object[] = [];
-  traditional:object[] = [];
-
-
-  pushProduct(event: Event, data) {
-    this.arrayOfProducts.push(data);
-    //console.log('array of products: ',this.arrayOfProducts);
-  }
-
-  saveData(event: Event) {
-    //console.log("saveData ");
-    this.ordersService.saveProductsOrders(this.arrayOfProducts, this.customerName);
-    
-  }
-
   //adding and removing products of the kind Product to itemsOrder
 
   changeKindOfBurger = (kindOfBurger:string) => {
-    let burggger:Product = {
+    let burger:Product = {
       menu: this.burgerItem.menu,
       name: this.burgerItem.name,
       price: this.burgerItem.price,
@@ -68,7 +50,7 @@ export class ProductListComponent implements OnInit {
     }
     this.showKindOfBurger = false;
     this.burgerItem.type = kindOfBurger;
-    this.addItem(burggger);//si pongo this.addItem(this.burgerItem), cada vez que agregue una hamburguesa con un tipo distinto, todas las hamburguesas cambiarán su tipo. Ejemplo: si elijo una beef y después una veg, ambas hamburguesas serán veg. Si elijo una beef, una veg y una chicken, las 3 hamburguesas serán chicken
+    this.addItem(burger);//si pongo this.addItem(this.burgerItem), cada vez que agregue una hamburguesa con un tipo distinto, todas las hamburguesas cambiarán su tipo. Ejemplo: si elijo una beef y después una veg, ambas hamburguesas serán veg. Si elijo una beef, una veg y una chicken, las 3 hamburguesas serán chicken
   }
 
   addItem = (item)=>{
@@ -131,12 +113,10 @@ bringOnlyBreakfast(){
   this.traditionalBool = false;
 }
 
-
 bringOnlyTraditional(){
   this.traditionalBool = true;
   this.breakfastBool = false;
 }
-
 
 calculateTimeElapsed(){
   this.ordersService.getDeliveredOrderTime;

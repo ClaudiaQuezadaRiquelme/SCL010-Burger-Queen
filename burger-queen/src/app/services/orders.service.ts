@@ -176,9 +176,7 @@ getDeliveredOrderTime(){
 }
 
 getOrderTimeElapsed(){
-
   return (this.initialTimeOrder - this.testingTime)/60000;
-
 }
 
 }
