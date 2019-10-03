@@ -12,5 +12,7 @@
     "src/**/*.ts"
   ],
   "exclude": [
+    "node_modules",//solución problema grave grave grave
+    "**/*.spec.ts"//solución problema grave grave grave
   ]
 }
