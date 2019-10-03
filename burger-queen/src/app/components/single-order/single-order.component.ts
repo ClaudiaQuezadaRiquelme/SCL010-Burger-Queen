@@ -21,13 +21,21 @@ editingForm = this.ordersService.form;
 newOrderItems:Product[]=[];
 breakfastBool:boolean = false;
 traditionalBool:boolean = false;
+showKindOfBurger:boolean = false;
 itemsOfOrder:Product[];
 items:Product[];
 product:Product;
 producToReplaceName:string;
 currentId:string;
+totalOrderCost:number;
+burgerItem:Product ={
+  name: '',
+  menu: '',
+  price: 0,
+  type: ''
+};
 
-  constructor(private ordersService:OrdersService, private route:ActivatedRoute, private location:Location) { 
+  constructor(public ordersService:OrdersService, private route:ActivatedRoute, private location:Location) { 
     
   }
 
@@ -36,6 +44,50 @@ currentId:string;
     this.ordersService. getMenuItemsFromFS().subscribe(itemsComing=>{
       this.items=itemsComing;
     })
+  }
+
+  changeKindOfBurger = (kindOfBurger:string) => {
+    let burger:Product = {
+      menu: this.burgerItem.menu,
+      name: this.burgerItem.name,
+      price: this.burgerItem.price,
+      type: kindOfBurger
+    }
+    this.showKindOfBurger = false;
+    this.burgerItem.type = kindOfBurger;
+    this.addItem(burger);//si pongo this.addItem(this.burgerItem), cada vez que agregue una hamburguesa con un tipo distinto, todas las hamburguesas cambiarán su tipo. Ejemplo: si elijo una beef y después una veg, ambas hamburguesas serán veg. Si elijo una beef, una veg y una chicken, las 3 hamburguesas serán chicken
+  }
+
+  addItem = (item)=>{
+
+    if (item.name === 'Hamburguesa Simple'||item.name === 'Hamburguesa Doble') {
+      if (item.type === 'Burger') {
+        console.log('if primero');
+        this.showKindOfBurger = true;
+        //si pongo this.burgerItem = item, sólo podemos elegir una hamburguesa Simple y una Doble por pedido y no nos permitirá elegir el tipo [veg,beef,chicken] nunca más. Esto es porque el ngFor corre sólo una vez.
+        this.burgerItem.menu = item.menu;
+        this.burgerItem.name = item.name;
+        this.burgerItem.price = item.price;
+        this.burgerItem.type = item.type;
+        console.log('this.burgerItem: ', this.burgerItem);
+  
+      } else if (this.burgerItem.type === 'chicken'||this.burgerItem.type === 'beef'||this.burgerItem.type === 'veg') {//este primero
+        console.log('if segundo');
+        
+        this.itemsOfOrder.push(item);
+        this.totalOrderCost += item.price;
+        console.log(item.price);
+        console.log(this.totalOrderCost);
+  
+      }
+    } else {
+      console.log('if por defecto');
+      this.itemsOfOrder.push(item);
+      this.totalOrderCost += item.price;
+      console.log(item.price);
+      console.log(this.totalOrderCost);
+    }
+    
   }
 
   bringTheInterestOrder =()=>{

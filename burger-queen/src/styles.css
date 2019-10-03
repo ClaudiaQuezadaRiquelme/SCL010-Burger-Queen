@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+.far{
+  float: right;
+  color: orange;
+}
+
 .display-5 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -22,7 +27,7 @@ table {
 }
 
 .th{
-    background: rgb(240, 197, 6);
+    background: orange;
     color: white;
 }
 
@@ -37,11 +42,11 @@ table {
 }
 
 .orderIdTd {
-  color: #ffce09;
+  color: #ff9d09;
 }
 
 .orderTotalTd{
-  color: #ffce09;
+  color: #ffb109;
     font-size: 14px;
     font-weight: bold;
 }
