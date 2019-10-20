@@ -106,7 +106,11 @@ export class ProductListComponent implements OnInit {
         console.log('is done');
       });
     this.ordersService.setOrderInitialTime();
+    this.itemsOfOrder = [];
+    this.customerName = '';
+    this.ordersService.form.reset();
   }
+
 
   bringOnlyBreakfast() {
     this.breakfastBool = true;
