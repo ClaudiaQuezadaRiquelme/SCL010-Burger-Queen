@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.far{
+  color: orange;
+  float: right;
+}
+.navbar-toggler{
+  border-color: yellow !important;
+    background: rgb(243, 137, 154) !important;
+}
 
 .display-5 {
   font-family: Arial, Helvetica, sans-serif;
@@ -22,7 +30,7 @@ table {
 }
 
 .th{
-    background: rgb(240, 197, 6);
+    background: orange;
     color: white;
 }
 
@@ -37,11 +45,11 @@ table {
 }
 
 .orderIdTd {
-  color: #ffce09;
+  color: #ff9d09;
 }
 
 .orderTotalTd{
-  color: #ffce09;
+  color: #ffb109;
     font-size: 14px;
     font-weight: bold;
 }

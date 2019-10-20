@@ -1,7 +1,7 @@
 <!-- THIS HTML COMPONENT MANAGES ONE SPECIFIC ORDER VIEW -->
- 
-<!-- Testing reactive forms for editing the order -->
 
+<!-- Testing reactive forms for editing the order -->
+<!-- 
 <div class="container menuContainer">
   <div class="row">
     <div *ngIf="loadingStatus">
@@ -23,50 +23,52 @@
           <td>Monto total: {{singleOrder.cost}}</td>
         </tr>
       </table>
-    </div>
-    <!-- creating reactive form to use buttons for adding products -->
-
-
-    <div *ngIf="loadingStatus" class="col-12">
-      <form [formGroup]="this.ordersService.form">
-        <!-- <input value={{singleOrder.customerName}} formControlName="customerName" type="text" class="form-control"> -->
-        <div *ngFor="let product of singleOrder.itemsOfOrder">
-          <input type="text" value={{product.name}} formControlName="itemsOfOrder">
-          <i (click)="enterOrderEdition(product.name)" class="far fa-edit"></i>
-          <i (click)="removeItem(product.name)" class="far fa-trash-alt"></i>
-        </div>
-    </form>
-        <!-- Activates when the edit button is clicked -->
-        <!-- SE PUEDE RESOLVER CON TWO WAY BINDING, CUANDO CLICK EN LAPICITO, HABILITAR EL TWO WAY -->
-        <div *ngIf="editing">
-          <div class="col-12">
-            <button (click)="bringOnlyBreakfast()" class="btn btn-dark m-2">Seleccionar Menú Desayuno</button>
-            <button (click)="bringOnlyTraditional()" class="btn btn-dark m-2">Seleccionar Menú Tradicional</button>
-          </div>
-          <!-- Responsible for showing Breakfast items -->
-          <div *ngIf="breakfastBool">
-            <span *ngFor="let item of items">
-              <button *ngIf='item.menu == "Breakfast"' class="btn btn-warning m-2" (click)="replaceItem(item)">
-                {{item.name}} ${{item.price}}
-              </button>
-            </span>
-          </div>
-
-      <!-- Responsible for showing Traditional items -->
-      <div class="container" *ngIf="traditionalBool">
-        <span *ngFor="let item of items">
-          <button *ngIf='item.menu == "Traditional"' class="btn btn-warning m-2" (click)="replaceItem(item)">
-            {{item.name}} ${{item.price}}
-          </button>
-        </span>
-
-        <!-- Responsible for Burger subOption items -->
-        <div *ngIf="showKindOfBurger">
-          <p>Tipo de hamburguesa: </p>
-          <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("chicken")'>Pollo</button>
-          <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("beef")'>Vacuno</button>
-          <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("veg")'>Vegano</button>
-        </div>
-      </div>
-    </div>
+    </div> -->
+<!-- creating reactive form to use buttons for adding products -->
+<!-- Activates when the edit button is clicked -->
+<!-- SE PUEDE RESOLVER CON TWO WAY BINDING, CUANDO CLICK EN LAPICITO, HABILITAR EL TWO WAY -->
+<div class=container>
+<div *ngIf="editing">
+  <div class="col-12">
+    <button (click)="bringOnlyBreakfast()" class="btn btn-dark m-2">Seleccionar Menú Desayuno</button>
+    <button (click)="bringOnlyTraditional()" class="btn btn-dark m-2">Seleccionar Menú Tradicional</button>
   </div>
+  <!-- Responsible for showing Breakfast items -->
+  <div *ngIf="breakfastBool">
+    <span *ngFor="let item of items">
+      <button *ngIf='item.menu == "Breakfast"' class="btn btn-warning m-2" (click)="replaceItem(item)">
+        {{item.name}} ${{item.price}}
+      </button>
+    </span>
+  </div>
+  <!-- Responsible for showing Traditional items -->
+  <div class="container" *ngIf="traditionalBool">
+    <span *ngFor="let item of items">
+      <button *ngIf='item.menu == "Traditional"' class="btn btn-warning m-2" (click)="replaceItem(item)">
+        {{item.name}} ${{item.price}}
+      </button>
+    </span>
+  </div>
+
+  <!-- Responsible for Burger subOption items -->
+  <div *ngIf="showKindOfBurger">
+    <p>Tipo de hamburguesa: </p>
+    <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("chicken")'>Pollo</button>
+    <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("beef")'>Vacuno</button>
+    <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("veg")'>Vegano</button>
+  </div>
+
+</div>
+
+  <div *ngIf="loadingStatus" class="col-12">
+    <form [formGroup]="this.ordersService.form">
+      <!-- <input value={{singleOrder.customerName}} formControlName="customerName" type="text" class="form-control"> -->
+      <div *ngFor="let product of singleOrder.itemsOfOrder">
+        <input type="text" value={{product.name}} formControlName="itemsOfOrder">
+        <i (click)="enterOrderEdition(product.name)" class="far fa-edit"></i>
+        <i (click)="removeItem(product.name)" class="far fa-trash-alt"></i>
+      </div>
+    </form>
+  </div>
+</div>
+

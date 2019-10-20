@@ -16,6 +16,7 @@ export class KitchenOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.bringOrdersInKitchen();
+    console.log('this is received orders: ',this.ordersBrought);
   }
 
 bringOrdersInKitchen(){

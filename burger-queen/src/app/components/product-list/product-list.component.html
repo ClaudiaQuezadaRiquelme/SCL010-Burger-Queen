@@ -42,6 +42,7 @@
           </li>
         </ul>
   <h5>Costo total de la orden: {{ totalOrderCost | currency:'CLP ':'symbol' }}</h5>
+  <h5>Tiempo transcurrido: {{ timeElapsed }} minutos</h5>
         <button class="btn btn-success m-2" (click)="onSubmit()">Enviar a cocina</button>
         <button class="btn btn-danger m-2" (click)="calculateTimeElapsed()">Simular orden entregada</button>
       </form>
