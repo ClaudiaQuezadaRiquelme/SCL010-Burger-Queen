@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
   breakfastBool = false;
   traditionalBool = false;
 
-  constructor(public ordersService: OrdersService, ) { }
+  constructor(public ordersService: OrdersService) {}
 
   ngOnInit() {
     this.ordersService.getMenuItemsFromFS().subscribe(itemsComing => {

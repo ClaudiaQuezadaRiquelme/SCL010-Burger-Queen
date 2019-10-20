@@ -77,14 +77,13 @@ export class SingleOrderComponent implements OnInit {
         this.burgerItem.type = item.type;
         console.log('this.burgerItem: ', this.burgerItem);
 
-      } else if (this.burgerItem.type === 'chicken' || this.burgerItem.type === 'beef' || this.burgerItem.type === 'veg') { // este primero
+      } else if (this.burgerItem.type === 'chicken' || this.burgerItem.type === 'beef' || this.burgerItem.type === 'veg') {
         console.log('if segundo');
 
         this.itemsOfOrder.push(item);
         this.totalOrderCost += item.price;
         console.log(item.price);
         console.log(this.totalOrderCost);
-
       }
     } else {
       console.log('if por defecto');
