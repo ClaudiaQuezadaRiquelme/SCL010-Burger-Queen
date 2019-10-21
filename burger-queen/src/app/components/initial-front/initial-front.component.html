@@ -12,15 +12,41 @@
       </div>
     </div>
     <div class="col-8 m-1">
-      <app-actual-orders></app-actual-orders>
+      <!-- THIS HTML COMPONENT MANAGES THE ORDERS (ALL ORDERS) VIEW -->
+      <div class="container-fluid appPrincipal">
+        <h4 class="display-5">Historial de Órdenes</h4>
+        <div class="row justify-content-center appPCapa2">
+          <table class="table-striped m-1">
+            <tr colspan="4">
+              <th>Tiempo transcurrido</th>
+              <th>Cliente</th>
+              <th>Identificador de orden</th>
+              <th>Monto total de la orden</th>
+
+              <th>Estado</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+            <tbody>
+              <tr colspan="4" *ngFor="let order of recentOrders">
+                <td class="customerNameTd">{{ order.payload.doc.data().startTime.toDate() }}</td>
+                <td class="customerNameTd">{{ order.payload.doc.data().customerName }}</td>
+                <td class="orderIdTd">{{ order.payload.doc.id }}</td>
+                <td class="orderTotalTd">{{ order.payload.doc.data().cost | currency:'CLP ':'symbol' }}</td>
+                <td [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
+                  {{ order.payload.doc.data().status}}
+                </td>
+                <td>
+                  <i routerLink='/order/{{order.payload.doc.id}}' class="far fa-edit"></i>
+                </td>
+                <td>
+                  <i (click)="deleteOrder(order.payload.doc.id)" class="far fa-trash-alt"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <!-- <div class="orderStatus">
-            <ul class="list-group">
-                <li class="list-group-item active">Estado de la orden</li>
-                <li class="list-group-item status readyToDeliver"><p>Lista</p></li>
-                <li class="list-group-item status stillCooking"><p>En Curso</p></li>
-                <li class="list-group-item status stillCooking"><p>En Curso</p></li>
-            </ul>
-        </div> -->
   </div>
 </div>

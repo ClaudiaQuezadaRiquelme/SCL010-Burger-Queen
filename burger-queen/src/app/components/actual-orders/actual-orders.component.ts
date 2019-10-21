@@ -19,9 +19,7 @@ export class ActualOrdersComponent implements OnInit {
   constructor(private ordersService: OrdersService) { }
 
   ngOnInit() {
-    // this.ordersInQueue = this.ordersService.getOrdersInService();
     this.getOrders();
-    console.log(this.ordersInQueue2 = this.ordersService.getOrdersByCreationTime());
   }
 
   getOrders() {

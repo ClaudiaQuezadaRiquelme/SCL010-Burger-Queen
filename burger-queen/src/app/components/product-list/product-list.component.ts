@@ -17,8 +17,10 @@ export class ProductListComponent implements OnInit {
   itemsOfOrder: Product[] = [];
   totalOrderCost = 0;
   breakfastItems: any;
-  timeElapsed: number;
   customerName = '';
+  takenOrderTime: Date;
+  timeElapsed: number;
+
 
   breakfastBool = false;
   traditionalBool = false;
@@ -99,6 +101,7 @@ export class ProductListComponent implements OnInit {
     this.ordersService.form.value.itemsOfOrder = this.itemsOfOrder;
     this.ordersService.form.value.status = 'enCocina';
     this.ordersService.form.value.cost = this.totalOrderCost;
+    this.ordersService.form.value.startTime = new Date();
     const datta = this.ordersService.form.value;
 
     this.ordersService.createOrder(datta)

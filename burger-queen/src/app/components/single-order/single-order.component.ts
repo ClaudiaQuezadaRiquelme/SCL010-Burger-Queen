@@ -108,7 +108,6 @@ export class SingleOrderComponent implements OnInit {
 
 
   removeItem(item, trashId, liId) {
-
     this.ordersService.deleteItemInOrder(this.currentId, item, this.itemsOfOrder, trashId, liId);
   }
 
@@ -125,9 +124,6 @@ export class SingleOrderComponent implements OnInit {
 
   }
 
-  onSubmit() {
-    console.log('is submitting');
-  }
 }
 
 

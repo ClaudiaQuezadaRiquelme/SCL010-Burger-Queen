@@ -37,7 +37,8 @@ export class OrdersService {
     customerName: new FormControl(''),
     itemsOfOrder: new FormControl(''),
     status: new FormControl(''),
-    cost: new FormControl('')
+    cost: new FormControl(''),
+    startTime : new FormControl('')
   });
 
 
@@ -93,7 +94,7 @@ export class OrdersService {
   }
 
   getOrdersByCreationTime() {
-    return this.firebase.collection('orders', ref => ref.orderBy('timestamp', 'asc'));
+    return this.firebase.collection('orders', ref => ref.orderBy('startTime', 'asc'));
   }
 
   // Brings orders different than delivered
