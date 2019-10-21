@@ -18,7 +18,7 @@
         <div class="row justify-content-center appPCapa2">
           <table class="table-striped m-1">
             <tr colspan="4">
-              <th>Tiempo transcurrido</th>
+              <th>Orden tomada en</th>
               <th>Cliente</th>
               <th>Identificador de orden</th>
               <th>Monto total de la orden</th>
@@ -29,7 +29,7 @@
             </tr>
             <tbody>
               <tr colspan="4" *ngFor="let order of recentOrders">
-                <td class="customerNameTd">{{ order.payload.doc.data().startTime.toDate() }}</td>
+                <td class="orderTime">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</td>
                 <td class="customerNameTd">{{ order.payload.doc.data().customerName }}</td>
                 <td class="orderIdTd">{{ order.payload.doc.id }}</td>
                 <td class="orderTotalTd">{{ order.payload.doc.data().cost | currency:'CLP ':'symbol' }}</td>
