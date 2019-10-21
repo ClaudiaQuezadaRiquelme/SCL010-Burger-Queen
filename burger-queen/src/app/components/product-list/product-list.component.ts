@@ -108,6 +108,7 @@ export class ProductListComponent implements OnInit {
     this.ordersService.setOrderInitialTime();
     this.itemsOfOrder = [];
     this.customerName = '';
+    this.totalOrderCost = 0;
     this.ordersService.form.reset();
   }
 

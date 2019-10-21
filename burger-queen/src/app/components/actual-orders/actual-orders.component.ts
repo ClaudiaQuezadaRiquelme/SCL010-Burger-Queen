@@ -12,8 +12,6 @@ import { AngularFirestoreCollection } from '@angular/fire/firestore';
   styleUrls: ['./actual-orders.component.css']
 })
 export class ActualOrdersComponent implements OnInit {
-  // ordersInQueue: OrderModel[];
- 
   ordersInQueue: any[];
   ordersInQueue2: AngularFirestoreCollection;
 
@@ -24,24 +22,21 @@ export class ActualOrdersComponent implements OnInit {
     // this.ordersInQueue = this.ordersService.getOrdersInService();
     this.getOrders();
     console.log(this.ordersInQueue2 = this.ordersService.getOrdersByCreationTime());
-    
   }
 
-  getOrders = () =>{
+  getOrders() {
     this.ordersService
       .getOrdersInService()
       .subscribe(res => (this.ordersInQueue = res));
     }
 
-  
-
-  deleteOrder = (id) => {
+  deleteOrder(id) {
     this.ordersService.deleteOrder(id);
   }
 
 
-  showOrderSingleView = (data, idComing) =>{
-    //call bringOneOrder 
+  showOrderSingleView(data, idComing) {
+    // call bringOneOrder
     this.ordersService.bringOneOrder(data, idComing);
     console.log('is calling showOrderSingleView, and its id', idComing );
   }
@@ -49,12 +44,11 @@ export class ActualOrdersComponent implements OnInit {
 
 
   setClass(id, data) {
-    let classes = {
-      'stillCooking': data.status === 'enCocina',
-      'readyToDeliver': data.status === 'delivered'
-    }
+    const classes = {
+      stillCooking: data.status === 'enCocina',
+      readyToDeliver: data.status === 'delivered'
+    };
     return classes;
   }
 
-  
 }

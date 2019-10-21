@@ -124,17 +124,20 @@ export class OrdersService {
 
   }
 
-  updateOrder(id, data) {
-    return this.firebase.collection('orders').doc(id).update({
-      itemsOfOrder: fb.firestore.FieldValue.arrayUnion(data)
-    });
+  addItemToOrder(id, data) {
+        return this.firebase.collection('orders').doc(id).update({
+          itemsOfOrder: fb.firestore.FieldValue.arrayUnion(data)
+        });
+      }
 
-  }
-
-  deleteItemInOrder(id, data) {
-    return this.firebase.collection('orders').doc(id).update({
-      itemsOfOrder: fb.firestore.FieldValue.arrayRemove(data)
-    });
+  deleteItemInOrder(id, data, itemsContained) {
+    for (const item of itemsContained) {
+      if (item.name === data) {
+        return this.firebase.collection('orders').doc(id).update({
+          itemsOfOrder: fb.firestore.FieldValue.arrayRemove(item)
+        });
+      }
+    }
   }
 
   bringOneOrder(data, theId) {

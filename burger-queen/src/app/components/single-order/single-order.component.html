@@ -61,13 +61,15 @@
 </div>
 
   <div *ngIf="loadingStatus" class="col-12">
+    <h4>Cliente:{{singleOrder.customerName}}</h4> 
     <form [formGroup]="this.ordersService.form">
       <!-- <input value={{singleOrder.customerName}} formControlName="customerName" type="text" class="form-control"> -->
       <div *ngFor="let product of singleOrder.itemsOfOrder">
         <input type="text" value={{product.name}} formControlName="itemsOfOrder">
-        <i (click)="enterOrderEdition(product.name)" class="far fa-edit"></i>
+        <!-- <i (click)="enterOrderEdition(product.name)" class="far fa-edit"></i> -->
         <i (click)="removeItem(product.name)" class="far fa-trash-alt"></i>
       </div>
+      <button class="btn btn-success" (click)="addProduct()">Añadir un producto a la orden</button>
     </form>
   </div>
 </div>

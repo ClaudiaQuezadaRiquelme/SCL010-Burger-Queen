@@ -110,37 +110,19 @@ export class SingleOrderComponent implements OnInit {
     );
   }
 
-
-
-  enterOrderEdition = (productNameThatComes: string) => {
+// first we access the editing mode : show product buttons
+  addProduct(item) {
     this.editing = true;
-    this.producToReplaceName = productNameThatComes;
-    console.log('este es el nombre de producto que se trae:', this.producToReplaceName);
+   }
+
+   // then we add the product to the array of products in the forestore document
+  replaceItem(itemComing) {
+    this.ordersService.addItemToOrder(this.currentId, itemComing);
   }
 
-  replaceItem(item) {
-    const collectionOfProducts = this.singleOrder.itemsOfOrder;
-    const prodName: any = this.producToReplaceName;
-    for (const element of collectionOfProducts) {
-      if (element.name === prodName) {
-        const data = item;
-        this.ordersService.updateOrder(this.currentId, data);
-      }
-    }
-    console.log('this is the new itemsOfOrder', this.singleOrder.itemsOfOrder);
-    console.log('this is item', item);
-  }
 
   removeItem(item) {
-    const collectionOfProducts = this.singleOrder.itemsOfOrder;
-    let element: any;
-    const prodName: any = this.producToReplaceName;
-    for (element of collectionOfProducts) {
-      if (element.name === prodName) {
-        const data = item;
-        this.ordersService.deleteItemInOrder(this.currentId, data);
-      }
-    }
+    this.ordersService.deleteItemInOrder(this.currentId, item, this.itemsOfOrder);
   }
 
   bringOnlyBreakfast() {
