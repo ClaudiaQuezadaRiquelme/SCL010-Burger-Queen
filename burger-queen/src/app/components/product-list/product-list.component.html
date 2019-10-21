@@ -29,9 +29,9 @@
           </span>
           <div *ngIf="showKindOfBurger">
               <p>Tipo de hamburguesa: </p>
-              <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("chicken")'>Pollo</button>
-              <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("beef")'>Vacuno</button>
-              <button *ngIf="showKindOfBurger" (click)='changeKindOfBurger("veg")'>Vegano</button>
+              <button (click)='changeKindOfBurger("chicken")'>Pollo</button>
+              <button (click)='changeKindOfBurger("beef")'>Vacuno</button>
+              <button (click)='changeKindOfBurger("veg")'>Vegano</button>
           </div>
         </div>
 

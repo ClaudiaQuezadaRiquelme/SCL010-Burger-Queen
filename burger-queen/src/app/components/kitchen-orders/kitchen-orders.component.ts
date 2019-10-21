@@ -10,19 +10,19 @@ import {OrderModel} from './../../models/orders';
 })
 export class KitchenOrdersComponent implements OnInit {
   // ordersBrought:AngularFirestoreCollection<OrderModel>;
-  ordersBrought:any;
+  ordersBrought: any;
 
-  constructor(private ordersService:OrdersService) { }
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit() {
     this.bringOrdersInKitchen();
-    console.log('this is received orders: ',this.ordersBrought);
+    console.log('this is received orders: ', this.ordersBrought);
   }
 
-bringOrdersInKitchen(){
-  this.ordersService.bringKitchenOrders().subscribe(receivedOrders =>{
+bringOrdersInKitchen() {
+  this.ordersService.bringKitchenOrders().subscribe(receivedOrders => {
     this.ordersBrought = receivedOrders;
-  })
+  });
   console.log('Trayendo órdenes en cocina desde el componente');
 }
 

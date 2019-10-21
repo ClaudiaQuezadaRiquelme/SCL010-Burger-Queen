@@ -19,17 +19,17 @@ export class ProductListComponent implements OnInit {
   breakfastItems: any;
   timeElapsed: number;
   customerName = '';
-  newBurgerType = '';
+
+  breakfastBool = false;
+  traditionalBool = false;
+
+  showKindOfBurger = false;
   burgerItem: Product = {
     name: '',
     menu: '',
     price: 0,
     type: ''
   };
-  showKindOfBurger = false;
-
-  breakfastBool = false;
-  traditionalBool = false;
 
   constructor(public ordersService: OrdersService) {}
 
@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit {
 
   // adding and removing products of the kind Product to itemsOrder
 
-  changeKindOfBurger = (kindOfBurger: string) => {
+  changeKindOfBurger(kindOfBurger: string) {
     const burger: Product = {
       menu: this.burgerItem.menu,
       name: this.burgerItem.name,

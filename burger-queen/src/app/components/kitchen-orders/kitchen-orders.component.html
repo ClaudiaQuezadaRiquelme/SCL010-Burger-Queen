@@ -18,7 +18,7 @@
                 <td class="customerNameTd">{{ kOrder.payload.doc.data().customerName }}</td>
                 <td class="orderIdTd">{{ kOrder.payload.doc.id }}</td>
                 <td class="orderTotalTd"><li *ngFor="let item of kOrder.payload.doc.data().itemsOfOrder">
-                    {{item.name}}
+                    {{item.name}} [{{item.type}}]
                 </li></td>
                 <td class="orderStatus">{{ kOrder.payload.doc.data().status}}</td>
               </tr>

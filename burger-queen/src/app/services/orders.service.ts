@@ -116,7 +116,6 @@ export class OrdersService {
           return { id, ...data };
         }))
       );
-    console.log(this.breakfastCollection);
   }
 
   filterTraditionalItems() {
@@ -130,9 +129,9 @@ export class OrdersService {
         });
       }
 
-  deleteItemInOrder(id, data, itemsContained) {
+  deleteItemInOrder(id, data, itemsContained, trashId, liId) {
     for (const item of itemsContained) {
-      if (item.name === data) {
+      if (item.name === data && trashId === liId ) {
         return this.firebase.collection('orders').doc(id).update({
           itemsOfOrder: fb.firestore.FieldValue.arrayRemove(item)
         });
