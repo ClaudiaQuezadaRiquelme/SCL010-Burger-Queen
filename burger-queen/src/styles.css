@@ -170,14 +170,14 @@ span {
 
 }
 
-.kitchenOrdersWrapper{
+.kitchenOrdersWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 
 }
 
-.kOrdersWrapper{
+.kOrdersWrapper {
   display: flex;
   flex-direction: column;
   width: 50vw;
@@ -185,7 +185,14 @@ span {
 
 }
 
-.orderTimeKitchen{
+.kitchenIcon img {
+  float: left;
+  z-index: 4;
+  margin-top: -240%;
+  margin-left: 140%;
+}
+
+.orderTimeKitchen {
   font-style: normal;
   font-weight: bold;
   font-size: 1 em;

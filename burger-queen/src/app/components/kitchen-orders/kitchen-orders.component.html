@@ -1,5 +1,6 @@
 <!-- THIS HTML COMPONENT MANAGES KITCHEN ORDERS VIEW -->
 <div class="kitchenOrdersWrapper">
+  <div class="kitchenIcon"><img src="./../../../assets/images/BurgerClownQueenLogo1-02.png" alt="Kitchen imagery"></div>
   <div class="kOrdersWrapper">
     <div class="priOrder" *ngFor="let order of ordersBrought">
       <span class="orderTimeKitchen">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</span>
