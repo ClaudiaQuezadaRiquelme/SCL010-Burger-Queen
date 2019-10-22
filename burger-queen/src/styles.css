@@ -9,7 +9,7 @@ body {
 
 .secondLayer {
   background: #EEE8B3;
-  height: 80vh;
+  /* height: 80vh; */
   border-bottom-left-radius: 40%;
 
 }
@@ -20,6 +20,7 @@ body {
 }
 
 .logo {
+  margin-top: 2%;
   width: 15vw;
 }
 
@@ -69,6 +70,7 @@ li {
   line-height: 34px;
   color: #353434;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .fa-trash-alt {
@@ -168,41 +170,59 @@ span {
 
 }
 
-/*Classes definition to get used y ngClass directive when necessary*/
+.kitchenOrdersWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.readyToDeliver {
-  margin-top: 50%;
-  color: whitesmoke;
-  background: #4BDB46;
+}
+
+.kOrdersWrapper{
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  margin-left: 35%;
+
+}
+
+.orderTimeKitchen{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1 em;
+  color: #FFAD09;
+  line-height: 27px;
+
+}
+
+/*Classes definition to get used y ngClass directive when necessary*/
+.readyToDeliver,
+.stillCooking,
+.delivered {
+  height: 12%;
   border-radius: 9px;
   font-weight: bold;
-  font-size: 24px;
-  line-height: 33px;
+  font-size: 0.9em;
+  line-height: 220%;
   color: #FFFFFF;
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 4%;
+  padding: 4%;
+  width: 80%;
+
+}
+
+.readyToDeliver {
+  background: #4BDB46;
+
 }
 
 .stillCooking {
-background: #FF7F7F;
-height: 12%;
-border-radius: 9px;
-font-weight: bold;
-font-size: 0.9em;
-line-height: 220%;
-color: #FFFFFF;
-text-align: center;
-margin-top: 1%;
-margin-bottom: 4%;
-padding: 4%;
-width: 80%;
+  background: #FF7F7F;
+
 }
 
-.delivered{
-  margin-top: 50%;
-  background: #FF9D09;;
-  border-radius: 9px;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 33px;
-  color: #FFFFFF;
+.delivered {
+  background: #FF9D09;
 
 }

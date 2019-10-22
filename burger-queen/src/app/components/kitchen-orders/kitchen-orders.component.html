@@ -1,28 +1,17 @@
-
 <!-- THIS HTML COMPONENT MANAGES KITCHEN ORDERS VIEW -->
-<div class="container-fluid appPrincipal">
-        <h4 class="display-5">Órdenes en Cocina</h4>
-        <div class="row justify-content-center appPCapa2">
-          <table class="table-striped m-1">
-          <thead>
-            <tr colspan="3">
-              <th>Cliente</th>
-              <th>Identificador de orden</th>
-              <th>Productos a preparar</th>
-              <th>Estado</th>
-            </tr>
-            </thead>
-            
-            <tbody>
-              <tr colspan="3" *ngFor="let kOrder of ordersBrought">
-                <td class="customerNameTd">{{ kOrder.payload.doc.data().customerName }}</td>
-                <td class="orderIdTd">{{ kOrder.payload.doc.id }}</td>
-                <td class="orderTotalTd"><li *ngFor="let item of kOrder.payload.doc.data().itemsOfOrder">
-                    {{item.name}} [{{item.type}}]
-                </li></td>
-                <td class="orderStatus">{{ kOrder.payload.doc.data().status}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+<div class="kitchenOrdersWrapper">
+  <div class="kOrdersWrapper">
+    <div class="priOrder" *ngFor="let order of ordersBrought">
+      <span class="orderTimeKitchen">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</span>
+      <span class="customerNameTd">{{ order.payload.doc.data().customerName }}</span>
+      <!-- <span class="orderIdTd">{{ order.payload.doc.id }}</span> -->
+      <span class="orderTotalTd">
+        <li *ngFor="let item of order.payload.doc.data().itemsOfOrder">
+          {{item.name}} [{{item.type}}]
+        </li>
+      </span>
+  </div>
+
+  
+  </div>
+</div>

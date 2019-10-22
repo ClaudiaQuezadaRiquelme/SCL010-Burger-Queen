@@ -26,4 +26,13 @@ bringOrdersInKitchen() {
   console.log('Trayendo órdenes en cocina desde el componente');
 }
 
+setClass(id, data) {
+  const classes = {
+    stillCookingClickable: data.status === 'enCocina',
+    readyToDeliverClickable: data.status === 'delivered',
+    deliverClickable: data.status === 'done'
+  };
+  return classes;
+}
+
 }

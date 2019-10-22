@@ -1,3 +1,31 @@
  /* THIS CSS COMPONENT MANAGES THE ORDERS (ALL ORDERS) STYLES */
-/* <!-- THIS CSS COMPONENT MANAGES THE INITIAL APP FRONT VIEW --> */
+ /* <!-- THIS CSS COMPONENT MANAGES THE INITIAL APP FRONT VIEW --> */
 
+ .readyToDeliverClickable,
+ .stillCookingClickable,
+ .deliverClickable {
+   height: 12%;
+   border-radius: 9px;
+   font-weight: bold;
+   font-size: 0.9em;
+   line-height: 220%;
+   color: #FFFFFF;
+   text-align: center;
+   margin-top: 1%;
+   margin-bottom: 4%;
+   padding: 4%;
+   width: 80%;
+
+ }
+
+ .stillCookingClickable {
+   background: #FF7F7F;
+ }
+
+ .readyToDeliverClickable {
+   background: #4BDB46;
+ }
+
+ .deliverClickable {
+   background: #FF9D09;
+ }
