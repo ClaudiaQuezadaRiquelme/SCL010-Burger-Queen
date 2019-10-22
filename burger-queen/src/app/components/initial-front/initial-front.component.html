@@ -28,7 +28,7 @@
               <th>Eliminar</th>
             </tr>
             <tbody>
-              <tr colspan="4" *ngFor="let order of recentOrders">
+              <tr colspan="4" *ngFor="let order of recentOrders.slice(0, 5);"> <!-- mostrar los últimos 5 de la lista -->
                 <td class="orderTime">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</td>
                 <td class="customerNameTd">{{ order.payload.doc.data().customerName }}</td>
                 <td class="orderIdTd">{{ order.payload.doc.id }}</td>
