@@ -11,7 +11,7 @@
   </div>
 
   <div class="recentOrdersWrapper">
-    <div class="priOrder" *ngFor="let order of recentOrders">
+    <div class="priOrder" *ngFor="let order of recentSinteticOrders">
       <span class="orderTime">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</span>
       <span class="customerNameTd">{{ order.payload.doc.data().customerName }}</span>
       <span class="orderIdTd">{{ order.payload.doc.id }}</span>
@@ -20,7 +20,7 @@
   </div>
 
   <div class="statusWrapper" >
-    <div *ngFor="let order of recentOrders" [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
+    <div *ngFor="let order of recentSinteticOrders" [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
       {{ order.payload.doc.data().status}}
     </div>
   </div>
