@@ -155,8 +155,8 @@ export class OrdersService {
   }
 
 
-  bringKitchenOrders() {
-    return this.firebase.collection('orders', ref => ref.where('status', '==', 'enCocina')).snapshotChanges();
+  bringKitchenOrders() { // obtiene órdenes en cocina y las ordena
+    return this.firebase.collection('orders', ref => ref.where('status', '==', 'enCocina').orderBy('startTime', 'asc')).snapshotChanges();
   }
 
   deleteOrder(id) {
