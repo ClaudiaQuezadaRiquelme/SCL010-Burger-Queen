@@ -1,33 +1,15 @@
-<div class="container appNavbar">
-<header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img src="./../../../../assets/images/BurgerClQLogo1-01.png"
-      alt="Burger ClauN Queens"></a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link cLink" routerLink=""> Inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link cLink" routerLink="/menuboard">Tomar Orden</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link cLink" routerLink="/orders">Historial de Órdenes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link cLink" routerLink="/kitchen">Ver Órdenes en Cocina</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link cLink" routerLink="/delivered">Ver Órdenes Entregadas</a>
-      </li>
-    </ul>
+<div class="navbarWrapper">
+<div>
+  <img class="logo" src="./../../../../assets/images/BurgerClQLogo1-01.png" alt="Burger Clown Queens Logo">
   </div>
+<nav class="navBar">
+  <div class="headerTitle">MANEJO DE ÓRDENES</div>
+  <div>
+  <ul>
+    <li><button class="cLink" routerLink="/kitchen">en Cocina</button></li>
+    <li><button class="cLink" routerLink="">Listas</button></li>
+    <li><button class="cLink" routerLink="/delivered">Entregadas</button></li>
+  </ul>
+</div>
 </nav>
-</header>
 </div>

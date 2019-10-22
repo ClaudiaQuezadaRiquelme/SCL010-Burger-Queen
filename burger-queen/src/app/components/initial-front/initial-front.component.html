@@ -1,52 +1,31 @@
 <!-- THIS HTML COMPONENT MANAGES THE INITIAL APP FRONT VIEW -->
 
-<div class="container-fluid appPrincipal">
-  <div class="row appPCapa2">
-
-    <div class="col-3">
-      <div class="btn btnComponent">
-        <p routerLink="/orders">VER ÓRDENES EN CURSO</p>
-      </div>
-      <div class="btn btnComponent">
-        <p routerLink="/menuboard">TOMAR ORDEN</p>
-      </div>
+<div class="initialOrdersWrapper">
+  <div class="goFastWrapper">
+    <div class="goFastBtn">
+      <p routerLink="/orders">VER ÓRDENES EN CURSO</p>
     </div>
-    <div class="col-8 m-1">
-      <!-- THIS HTML COMPONENT MANAGES THE ORDERS (ALL ORDERS) VIEW -->
-      <div class="container-fluid appPrincipal">
-        <h4 class="display-5">Historial de Órdenes</h4>
-        <div class="row justify-content-center appPCapa2">
-          <table class="table-striped m-1">
-            <tr colspan="4">
-              <th>Orden tomada en</th>
-              <th>Cliente</th>
-              <th>Identificador de orden</th>
-              <th>Monto total de la orden</th>
-
-              <th>Estado</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
-            </tr>
-            <tbody>
-              <tr colspan="4" *ngFor="let order of recentOrders">
-                <td class="orderTime">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</td>
-                <td class="customerNameTd">{{ order.payload.doc.data().customerName }}</td>
-                <td class="orderIdTd">{{ order.payload.doc.id }}</td>
-                <td class="orderTotalTd">{{ order.payload.doc.data().cost | currency:'CLP ':'symbol' }}</td>
-                <td [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
-                  {{ order.payload.doc.data().status}}
-                </td>
-                <td>
-                  <i routerLink='/order/{{order.payload.doc.id}}' class="far fa-edit"></i>
-                </td>
-                <td>
-                  <i (click)="deleteOrder(order.payload.doc.id)" class="far fa-trash-alt"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <div class="goFastBtn">
+      <p routerLink="/menuboard">TOMAR ORDEN</p>
     </div>
   </div>
+
+  <div class="recentOrdersWrapper">
+    <div class="priOrder" *ngFor="let order of recentOrders">
+      <span class="orderTime">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</span>
+      <span class="customerNameTd">{{ order.payload.doc.data().customerName }}</span>
+      <span class="orderIdTd">{{ order.payload.doc.id }}</span>
+      <span class="orderTotalTd">{{ order.payload.doc.data().cost | currency:'CLP ':'symbol' }}</span>
+    </div>
+  </div>
+
+  <div class="statusWrapper" >
+    <div *ngFor="let order of recentOrders" [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
+      {{ order.payload.doc.data().status}}
+    </div>
+  </div>
+
 </div>
+<!-- <div [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
+    {{ order.payload.doc.data().status}}
+  </div> -->

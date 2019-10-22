@@ -11,13 +11,12 @@ import { DeliveredOrdersComponent } from './components/delivered-orders/delivere
 
 
 const routes: Routes = [
-  {path: "", component: InitialFrontComponent},
-  {path: "orders", component: ActualOrdersComponent},
-  {path: "menuboard", component: MenuBoardComponent},
-  {path: "productList", component: ProductListComponent},
-  {path: "kitchen", component: KitchenOrdersComponent},
-  {path: "order/:id", component: SingleOrderComponent},
-  {path:"delivered", component:DeliveredOrdersComponent}
+  {path: 'orders', component: ActualOrdersComponent},
+  {path: 'menuboard', component: MenuBoardComponent},
+  {path: 'productList', component: ProductListComponent},
+  {path: 'kitchen', component: KitchenOrdersComponent},
+  {path: 'order/:id', component: SingleOrderComponent},
+  {path: 'delivered', component: DeliveredOrdersComponent}
 ];
 
 @NgModule({

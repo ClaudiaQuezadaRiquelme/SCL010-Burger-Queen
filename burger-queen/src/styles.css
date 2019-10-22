@@ -1,122 +1,201 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Open Sans', sans-serif;
 
-li{
+}
+
+.firstLayer {
+  background: #EEDC32;
+}
+
+.secondLayer {
+  background: #EEE8B3;
+  height: 80vh;
+  border-bottom-left-radius: 40%;
+
+}
+
+.navbarWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  width: 15vw;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 16vw;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: -4%;
+}
+
+
+.headerTitle {
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.3em;
+  line-height: 2em;
+  color: #4E4A4A;
+  width: 100vw;
+  height: 52px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  background: #F5DC5D;
+}
+
+li {
   list-style: none;
 }
-.far{
-  color: orange;
-  float: right;
-}
-.navbar-toggler{
-  border-color: yellow !important;
-    background: rgb(243, 137, 154) !important;
-}
 
-.far{
-  float: right;
-  color: orange;
-}
-
-.display-5 {
-  font-family: Arial, Helvetica, sans-serif;
+.cLink {
+  width: 20vw;
+  height: 7vh;
+  background: #FFDB2A;
+  border: 0;
+  border-radius: 15px;
+  font-style: normal;
   font-weight: bold;
-  color: #333;
+  font-size: 1.6em;
+  line-height: 34px;
+  color: #353434;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.fa-trash-alt {
+  float: right;
+  color: rgb(243, 179, 41);
+}
+
+.initialOrdersWrapper {
+  display: flex;
+}
+
+.goFastWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  padding-top: 10%;
+}
+
+.goFastBtn {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
+  margin: 2%;
+  background: #FFAD09;
+  border-radius: 15px;
 }
 
-/* TABLE RELATIVE STYLES */
-
-table {
-  border-collapse: collapse;
+.recentOrdersWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  margin-left: 1vw;
 }
 
-.td,
-.th {
-  width: 150px;
-  text-align: center;
-  border: 1px solid black;
-  padding: 5px
+.priOrder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1%;
+  background: rgba(243, 241, 241, 0.4);
+  border: 5px solid #5F5F5F;
+  box-sizing: border-box;
 }
 
-.th{
-    background: orange;
-    color: white;
+span {
+  margin: 0.4%;
+  padding: 0.6%;
 }
 
-.table {
-  border-collapse: separate;
-  border-spacing: 0 15px;
-}
+.orderTime {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.5em;
+  color: #404040;
 
-.orderTime{
- border: 2px white solid;
- font-size: 0.8em;
- margin-right: 1%;
 }
 
 .customerNameTd {
-  color: #333;
-
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 18px;
+  color: #404040;
 }
 
 .orderIdTd {
-  color: #ff9d09;
-}
-
-.orderTotalTd{
-  color: #ffb109;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.table-striped {
+  font-style: normal;
   font-weight: bold;
+  font-size: 0.5em;
+  color: #FFAD09;
+  line-height: 27px;
 }
 
-.table-striped>tbody>tr:nth-child(odd)>td {
-  background-color: rgba(236, 227, 209, 0.5);
+.orderTotalTd {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8em;
+  line-height: 27px;
+  color: #FF8E09;
 }
 
-.table-striped>tbody>tr:nth-child(even)>td {
-  background-color: rgba(241, 231, 187, 0.5);
-}
-
-.appPrincipal {
-  background: #FFCE09;
-  border-bottom-left-radius: 20%;
-  min-height: 400px;
-  padding-top: 2%;
-}
-
-.appPCapa2 {
-  background: rgb(244, 247, 244);
-}
-
-.far {
-  float: right;
-}
-
-
-.queueOrdersWrapper {
-  text-align: center;
-  align-items: center;
+.statusWrapper {
+  display: flex;
+  flex-direction: column;
 
 }
-
-.orderDetails,
-.orderStatus {
-  vertical-align: middle;
-}
-
 
 /*Classes definition to get used y ngClass directive when necessary*/
 
 .readyToDeliver {
+  margin-top: 50%;
   color: whitesmoke;
-  background: #FFAD09 !important;
+  background: #4BDB46;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  color: #FFFFFF;
 }
 
 .stillCooking {
-  color: #f7ffff;
-  background: rgb(112, 110, 110) !important;
+background: #FF7F7F;
+border-radius: 9px;
+font-weight: bold;
+font-size: 0.9em;
+line-height: 220%;
+color: #FFFFFF;
+margin-top: 20%;
+height: 70%;
+margin-top: 4%;
+margin-bottom: 4%;
+padding: 4%;
+width: 80%;
+}
+
+.delivered{
+  margin-top: 50%;
+  background: #FF9D09;;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  color: #FFFFFF;
+
 }

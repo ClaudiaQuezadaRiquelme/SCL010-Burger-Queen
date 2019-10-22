@@ -24,7 +24,7 @@ export class InitialFrontComponent implements OnInit {
   getRecentOrders() {
     this.ordersService.getOrdersByCreationTime().snapshotChanges().subscribe(data => {
       this.recentOrders = data;
-      console.log(this.recentOrders);
+      console.log('this recentOrders', this.recentOrders);
     });
     }
 
@@ -35,5 +35,4 @@ export class InitialFrontComponent implements OnInit {
       };
       return classes;
     }
-  
 }
