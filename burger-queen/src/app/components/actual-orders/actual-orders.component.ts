@@ -43,8 +43,8 @@ export class ActualOrdersComponent implements OnInit {
 
   setClass(id, data) {
     const classes = {
-      stillCooking: data.status === 'enCocina',
-      readyToDeliver: data.status === 'delivered'
+      stillCookingSimple: data.status === 'enCocina',
+      readyToDeliverSimple: data.status === 'delivered'
     };
     return classes;
   }

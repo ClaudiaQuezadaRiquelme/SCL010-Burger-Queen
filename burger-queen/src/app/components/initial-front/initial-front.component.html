@@ -19,36 +19,9 @@
     </div>
   </div>
 
-<<<<<<< HEAD
   <div class="statusWrapper" >
     <div *ngFor="let order of recentOrders" [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
       {{ order.payload.doc.data().status}}
-=======
-              <th>Estado</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
-            </tr>
-            <tbody> <!-- .slice(0, 5); -->
-              <tr colspan="4" *ngFor="let order of recentOrders.slice(0, 5);"> <!-- mostrar los últimos 5 de la lista -->
-                <td class="orderTime">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</td>
-                <td class="customerNameTd">{{ order.payload.doc.data().customerName }}</td>
-                <td class="orderIdTd">{{ order.payload.doc.id }}</td>
-                <td class="orderTotalTd">{{ order.payload.doc.data().cost | currency:'CLP ':'symbol' }}</td>
-                <td [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
-                  {{ order.payload.doc.data().status}}
-                </td>
-                <td>
-                  <i routerLink='/order/{{order.payload.doc.id}}' class="far fa-edit"></i>
-                </td>
-                <td>
-                  <i (click)="deleteOrder(order.payload.doc.id)" class="far fa-trash-alt"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
->>>>>>> f3d77f053faa2a287899918ad0f14957720d4518
     </div>
   </div>
 

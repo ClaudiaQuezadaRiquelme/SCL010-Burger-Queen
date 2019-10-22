@@ -2,7 +2,24 @@
 /* <!-- THIS CSS COMPONENT MANAGES THE INITIAL APP FRONT VIEW --> */
 
 
-
+.readyToDeliverSimple {
+    font-weight: bold;
+    font-size: 24px;
+    color: #4BDB46;
+  }
+  
+  .stillCookingSimple {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #FF7F7F;
+  }
+  
+  .deliveredSimple{
+    font-weight: bold;
+    font-size: 24px;
+    color: #FF9D09;
+  
+  }
 
 
  
