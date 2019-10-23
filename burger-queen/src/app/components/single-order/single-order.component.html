@@ -1,52 +1,54 @@
 <!-- THIS HTML COMPONENT MANAGES ONE SPECIFIC ORDER VIEW -->
 
 
-<div class=container>
-<div *ngIf="editing">
+
+<div *ngIf="editing" class="buttonsPanel">
   <div class="col-12">
-    <button (click)="bringOnlyBreakfast()" class="btn btn-dark m-2">Seleccionar Menú Desayuno</button>
-    <button (click)="bringOnlyTraditional()" class="btn btn-dark m-2">Seleccionar Menú Tradicional</button>
+    <button (click)="bringOnlyBreakfast()" class="selectMenu bfMenu">Menú Desayuno</button>
+    <button (click)="bringOnlyTraditional()" class="selectMenu tradMenu">Menú Tradicional</button>
   </div>
   <!-- Responsible for showing Breakfast items -->
-  <div *ngIf="breakfastBool">
+  <div *ngIf="breakfastBool" class="innerProductsWrapper">
     <span *ngFor="let item of items">
-      <button *ngIf='item.menu == "Breakfast"' class="btn btn-warning m-2" (click)="replaceItem(item)">
+      <button *ngIf='item.menu == "Breakfast"' class="selectMenu bfMenu" (click)="replaceItem(item)">
         {{item.name}} ${{item.price}}
       </button>
     </span>
   </div>
   <!-- Responsible for showing Traditional items -->
-  <div class="container" *ngIf="traditionalBool">
+  <div *ngIf="traditionalBool" class="innerProductsWrapper">
     <span *ngFor="let item of items">
-      <button *ngIf='item.menu == "Traditional"' class="btn btn-warning m-2" (click)="replaceItem(item)">
+      <button *ngIf='item.menu == "Traditional"' class="selectMenu tradMenu" (click)="replaceItem(item)">
         {{item.name}} ${{item.price}}
       </button>
     </span>
 
   <!-- Responsible for Burger subOption items -->
-  <div *ngIf="showKindOfBurger">
+  <div class="kindOfB" *ngIf="showKindOfBurger">
     <p>Tipo de hamburguesa: </p>
-    <button (click)='changeKindOfBurger("chicken")'>Pollo</button>
-    <button (click)='changeKindOfBurger("beef")'>Vacuno</button>
-    <button (click)='changeKindOfBurger("veg")'>Vegano</button>
+    <button class="kindBtn chicken" (click)='changeKindOfBurger("chicken")'>Pollo</button>
+    <button class="kindBtn beef" (click)='changeKindOfBurger("beef")'>Vacuno</button>
+    <button class="kindBtn vegan" (click)='changeKindOfBurger("veg")'>Vegano</button>
   </div>
 </div>
 </div>
-
-  <div *ngIf="loadingStatus" class="col-12">
-    <h4>Cliente:{{singleOrder.customerName}}</h4> 
+<div class="recentOrdersWrapper">
+  <div *ngIf="loadingStatus">
+    <div class="idInSingleOrder">{{ currentId }}</div> 
+    <h4 class="customerName">Cliente: {{singleOrder.customerName}}</h4>
     <form [formGroup]="this.ordersService.form">
-      <!-- <input value={{singleOrder.customerName}} formControlName="customerName" type="text" class="form-control"> -->
       <ul>
       <div *ngFor="let product of singleOrder.itemsOfOrder; let i=index">
-        <li #liI [attr.data-liId]="i">
-        {{product.name}} [{{product.type}}]
+        <li class="productInList" #liI [attr.data-liId]="i">
+        {{product.name}} <span class="producType">[{{product.type}}]</span>
         <i #trashId [attr.data-trashId]="i" (click)="removeItem(product.name, trashId.getAttribute('data-trashId'), liI.getAttribute('data-liId'))" class="far fa-trash-alt"></i>
       </li>
       </div>
-      <button class="btn btn-success" (click)="addProduct()">Añadir un producto a la orden</button>
+      <button class="addProductBtn" (click)="addProduct()">Añadir un producto a la orden</button>
+      <button *ngIf="editing" class="noAddProductBtn" routerLink="/orders">Cancelar adición de productos</button>
     </ul>
     </form>
   </div>
 </div>
+
 
