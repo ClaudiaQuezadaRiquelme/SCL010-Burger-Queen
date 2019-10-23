@@ -1,7 +1,7 @@
 <div class="initialOrdersWrapper">
-  <div class="readyIcon"><img src="./../../../assets/images/BurgerClownQueenLogo1-03.png" alt="Kitchen imagery"></div>
+  <div class="readyIcon"><img src="./../../../assets/images/BurgerClownQueenLogo1-04.png" alt="Kitchen imagery"></div>
   <div class="recentOrdersWrapper">
-    <div class="priOrder" *ngFor="let order of deliveredOrders">
+    <div class="priOrder" *ngFor="let order of readyToDeliver">
       <span class="orderTime">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</span>
       <span class="customerNameTd">{{ order.payload.doc.data().customerName }}</span>
       <span class="orderIdTd">{{ order.payload.doc.id }}</span>
@@ -10,10 +10,8 @@
   </div>
 
   <div class="statusWrapper">
-    <div *ngFor="let order of deliveredOrders" [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
+    <div *ngFor="let order of readyToDeliver" [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">
       {{ order.payload.doc.data().status}}
     </div>
   </div>
-
-  
 </div>

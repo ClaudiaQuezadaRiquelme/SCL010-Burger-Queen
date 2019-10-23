@@ -7,19 +7,28 @@ import { OrdersService } from 'src/app/services/orders.service';
   styleUrls: ['./delivered-orders.component.css']
 })
 export class DeliveredOrdersComponent implements OnInit {
-  deliveredOrders:any;
+  deliveredOrders: any;
 
-  constructor(private ordersService:OrdersService) { }
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit() {
     this.getDeliveredOrders();
   }
 
-  getDeliveredOrders = () =>{
-    this.ordersService.getOnlyDeliveredOrders().subscribe(whatBrings=>{
-       this.deliveredOrders = whatBrings;
-       });
-     console.log("Estas son deliveredOrders", this.deliveredOrders);
-   }
+  getDeliveredOrders = () => {
+    this.ordersService.getOnlyDeliveredOrders().subscribe(whatBrings => {
+      this.deliveredOrders = whatBrings;
+    });
+    console.log('Estas son deliveredOrders', this.deliveredOrders);
+  }
+
+  setClass(id, data) {
+    const classes = {
+      stillCooking: data.status === 'enCocina',
+      readyToDeliver: data.status === 'toDeliver',
+      delivered: data.status === 'delivered'
+    };
+    return classes;
+  }
 
 }

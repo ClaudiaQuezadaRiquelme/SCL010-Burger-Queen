@@ -21,6 +21,7 @@ import { ActualOrdersComponent } from './components/actual-orders/actual-orders.
 import { KitchenOrdersComponent } from './components/kitchen-orders/kitchen-orders.component';
 import { SingleOrderComponent } from './components/single-order/single-order.component';
 import { DeliveredOrdersComponent } from './components/delivered-orders/delivered-orders.component';
+import { ReadyToDeliverComponent } from './components/ready-to-deliver/ready-to-deliver.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DeliveredOrdersComponent } from './components/delivered-orders/delivere
     KitchenOrdersComponent,
     SingleOrderComponent,
     DeliveredOrdersComponent,
+    ReadyToDeliverComponent,
   ],
   imports: [
     BrowserModule,
