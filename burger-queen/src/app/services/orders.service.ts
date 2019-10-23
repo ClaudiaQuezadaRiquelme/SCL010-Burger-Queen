@@ -159,6 +159,10 @@ export class OrdersService {
     return this.firebase.collection('orders', ref => ref.where('status', '==', 'enCocina').orderBy('startTime', 'asc')).snapshotChanges();
   }
 
+  bringReadyToDeliverOrders() { // obtiene órdenes listas para entregar y las ordena
+    return this.firebase.collection('orders', ref => ref.where('status', '==', 'toDeliver').orderBy('startTime', 'asc')).snapshotChanges();
+  }
+
   deleteOrder(id) {
     return this.firebase.collection('orders').doc(id).delete();
 

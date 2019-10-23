@@ -103,6 +103,7 @@ li {
   padding: 1% 5%;
   background: #FFAD09;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .recentOrdersWrapper {
@@ -188,8 +189,12 @@ span {
 .kitchenIcon img {
   float: left;
   z-index: 4;
-  margin-top: -240%;
   margin-left: 140%;
+}
+
+.readyIcon img{
+  float: left;
+  z-index: 4;
 }
 
 .orderTimeKitchen {

@@ -45,7 +45,8 @@ export class InitialFrontComponent implements OnInit, AfterViewInit {
   setClass(id, data) {
     const classes = {
       stillCooking: data.status === 'enCocina',
-      readyToDeliver: data.status === 'delivered'
+      readyToDeliver: data.status === 'toDeliver',
+      delivered: data.status === 'delivered'
     };
     return classes;
   }
