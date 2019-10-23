@@ -163,6 +163,7 @@ export class OrdersService {
     return this.firebase.collection('orders', ref => ref.where('status', '==', 'toDeliver').orderBy('startTime', 'asc')).snapshotChanges();
   }
 
+
   deleteOrder(id) {
     return this.firebase.collection('orders').doc(id).delete();
 

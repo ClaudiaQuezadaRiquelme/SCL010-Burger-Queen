@@ -1,48 +1,30 @@
 <!-- THIS HTML COMPONENT MANAGES THE ORDERS (ALL ORDERS) VIEW -->
-<div class="container-fluid appPrincipal">
-  <h4 class="display-5">Historial de Órdenes</h4>
-  <div class="row justify-content-center appPCapa2">
-    <table class="table-striped m-1">
-      <tr colspan="3">
-        <th>Cliente</th>
-        <th>Identificador de orden</th>
-        <th>Monto total de la orden</th>
-        <!-- <th>Eliminar Orden</th>
-    <th>Marcar como entregada</th> -->
-        <th>Estado</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-      </tr>
-      <tbody>
-        <tr colspan="3" *ngFor="let order of ordersInQueue">
-          <td class="customerNameTd">{{ order.payload.doc.data().customerName }}</td>
-          <td class="orderIdTd">{{ order.payload.doc.id }}</td>
-          <td class="orderTotalTd">{{ order.payload.doc.data().cost | currency:'CLP ':'symbol' }}</td>
-          <td [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">{{ order.payload.doc.data().status}}
-          </td>
-          <td>
+<div class="currentOrdersWrapper">
+  <div class="recentOrdersWrapper">
+    <div *ngFor="let order of ordersInQueue">
+      <div class="actOrder"
+        *ngIf="order.payload.doc.data().status == 'enCocina' || order.payload.doc.data().status == 'toDeliver'">
+        <div class="customerNameTd">{{ order.payload.doc.data().customerName }}</div>
+        <div class="orderIdTd">{{ order.payload.doc.id }}</div>
+        <div class="orderTotalTd">{{ order.payload.doc.data().cost | currency:'CLP ':'symbol' }}</div>
+        <div [ngClass]="setClass(order.payload.doc.id, order.payload.doc.data())">{{ order.payload.doc.data().status}}
+        </div>
+        <div class="editables">
+          <div>
             <i routerLink='/order/{{order.payload.doc.id}}' class="far fa-edit"></i>
-          </td>
-          <!-- <td><a routerLink='/order/{{order.payload.doc.id}}'>Edit order test</a></td> -->
-          <td>
+          </div>
+          <div>
             <i (click)="deleteOrder(order.payload.doc.id)" class="far fa-trash-alt"></i>
-          </td>
+          </div>
+        </div>
+      </div>
 
-          <!-- <td class="orderTotalTd">{{ order.payload.doc.data().status }}</td> -->
-          <!-- <td><span *ngFor="let item of order.payload.doc.data().itemsOfOrder">
-          {{ item.name }} //
-        </span>
-      </td> -->
-
-          <!-- <td [hidden]="order.payload.doc.data().completed">
+      <!-- <td [hidden]="order.payload.doc.data().completed">
         <input type="checkbox" (change)="markCompleted(order)">
         <span *ngIf="order.payload.doc.data().completed">
           Orden entregada
         </span>
       </td> -->
-
-        </tr>
-      </tbody>
-    </table>
+    </div>
   </div>
 </div>
