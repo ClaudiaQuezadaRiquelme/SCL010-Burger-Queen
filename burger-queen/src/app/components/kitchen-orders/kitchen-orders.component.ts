@@ -42,7 +42,6 @@ checkCheckbox($event, sendId: string) {
     console.log("HOLI");
     console.log('sendId: ', sendId);
     this.orderIsChecked = true;
-    
     } else {
       this.orderIsChecked = false;
       console.log("CHAI");
@@ -52,8 +51,7 @@ checkCheckbox($event, sendId: string) {
 SendToReadyOrders(order) {
   if (this.orderIsChecked === true) {
     console.log('ANVORGEZA');
-    // order.payload.doc.data().status = 'toDeliver'; // NO FUNCIONA
-    // console.log('order.payload.doc.data().status : ', order.payload.doc.data().status);
+    this.ordersService.changeStatus(order.payload.doc.id);
   }
 }
 

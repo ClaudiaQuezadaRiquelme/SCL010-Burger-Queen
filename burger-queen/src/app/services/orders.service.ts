@@ -182,9 +182,11 @@ export class OrdersService {
     return (this.initialTimeOrder - this.testingTime) / 60000;
   }
 
-  // changeStatus(id: string) {
-  //   const idInCollection = 'orders/' + id + '/status';
-  //   this.firebase.object(idInCollection).set('toDeliver');
-  // }
+  changeStatus(id: string) {
+    this.firebase.collection('orders').doc(id).update({
+      status: 'toDeliver'
+    });
+    console.log('PATATA FRITA');
+  }
 
 }
