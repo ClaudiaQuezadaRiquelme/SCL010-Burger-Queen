@@ -11,8 +11,9 @@
           {{item.name}} [{{item.type}}]
         </li>
       </span>
+      <span><input [attr.id]="'check_' + order.payload.doc.id" type="checkbox" (change)="checkCheckbox($event, 'send_' + order.payload.doc.id)"></span>
+      <span><i [attr.id]="'send_' + order.payload.doc.id" class="far fa-share-square" (click)="SendToReadyOrders(order)"></i></span>
   </div>
-
   
   </div>
 </div>

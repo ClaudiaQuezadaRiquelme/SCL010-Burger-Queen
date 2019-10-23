@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders.service';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import {OrderModel} from './../../models/orders';
+import { Logs } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-kitchen-orders',
@@ -11,6 +12,7 @@ import {OrderModel} from './../../models/orders';
 export class KitchenOrdersComponent implements OnInit {
   // ordersBrought:AngularFirestoreCollection<OrderModel>;
   ordersBrought: any;
+  orderIsChecked: boolean = false;
 
   constructor(private ordersService: OrdersService) { }
 
@@ -33,6 +35,26 @@ bringOrdersInKitchen() {
     deliverClickable: data.status === 'delivered'
   };
   return classes;
+}
+
+checkCheckbox($event, sendId: string) {
+  if ($event.target.checked === true) {
+    console.log("HOLI");
+    console.log('sendId: ', sendId);
+    this.orderIsChecked = true;
+    
+    } else {
+      this.orderIsChecked = false;
+      console.log("CHAI");
+    }
+}
+
+SendToReadyOrders(order) {
+  if (this.orderIsChecked === true) {
+    console.log('ANVORGEZA');
+    // order.payload.doc.data().status = 'toDeliver'; // NO FUNCIONA
+    // console.log('order.payload.doc.data().status : ', order.payload.doc.data().status);
+  }
 }
 
 }
