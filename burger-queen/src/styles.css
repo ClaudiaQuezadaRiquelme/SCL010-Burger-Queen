@@ -485,3 +485,7 @@ span {
   background: #FF9D09;
 
 }
+
+.fa-share-square:hover, .fa-check-square:hover {
+  background: #FF8E09;
+}

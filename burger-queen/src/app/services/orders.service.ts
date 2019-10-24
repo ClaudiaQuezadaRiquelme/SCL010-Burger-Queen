@@ -182,9 +182,15 @@ export class OrdersService {
     return (this.initialTimeOrder - this.testingTime) / 60000;
   }
 
-  changeStatus(id: string) {
+  changeStatusToDeliver(id: string) {
     this.firebase.collection('orders').doc(id).update({
       status: 'toDeliver'
+    });
+  }
+
+  changeStatusDelivered(id: string) {
+    this.firebase.collection('orders').doc(id).update({
+      status: 'delivered'
     });
   }
 

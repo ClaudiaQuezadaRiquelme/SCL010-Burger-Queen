@@ -14,7 +14,6 @@ export class KitchenOrdersComponent implements OnInit {
   // ordersBrought:AngularFirestoreCollection<OrderModel>;
   ordersBrought: any;
   orderIsChecked = false;
-  timeInKitchenIs = '';
 
   constructor(
     private ordersService: OrdersService,
@@ -52,7 +51,7 @@ export class KitchenOrdersComponent implements OnInit {
 
   SendToReadyOrders(order) {
     if (this.orderIsChecked === true) {
-      this.ordersService.changeStatus(order.payload.doc.id);
+      this.ordersService.changeStatusToDeliver(order.payload.doc.id);
     }
   }
 

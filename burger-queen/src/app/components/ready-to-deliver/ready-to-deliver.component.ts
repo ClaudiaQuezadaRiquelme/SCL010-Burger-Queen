@@ -7,7 +7,8 @@ import { OrdersService } from './../../services/orders.service';
   styleUrls: ['./ready-to-deliver.component.css']
 })
 export class ReadyToDeliverComponent implements OnInit {
-readyToDeliver: any;
+  readyToDeliver: any;
+  orderIsChecked = false;
 
   constructor(private ordersService: OrdersService) { }
 
@@ -28,6 +29,20 @@ readyToDeliver: any;
       delivered: data.status === 'delivered'
     };
     return classes;
+  }
+
+  checkCheckbox($event) {
+    if ($event.target.checked === true) {
+      this.orderIsChecked = true;
+      } else {
+        this.orderIsChecked = false;
+      }
+  }
+
+  SendToReadyOrders(order) {
+    if (this.orderIsChecked === true) {
+      this.ordersService.changeStatusDelivered(order.payload.doc.id);
+    }
   }
 
 }
