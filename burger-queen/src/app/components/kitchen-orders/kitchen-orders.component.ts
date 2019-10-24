@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders.service';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import {OrderModel} from './../../models/orders';
-import { Logs } from 'selenium-webdriver';
+import { ChronometerService } from 'src/app/services/chronometer.service';
 
 @Component({
   selector: 'app-kitchen-orders',
@@ -13,8 +13,12 @@ export class KitchenOrdersComponent implements OnInit {
   // ordersBrought:AngularFirestoreCollection<OrderModel>;
   ordersBrought: any;
   orderIsChecked: boolean = false;
+  timeInKitchenIs: string = '';
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(
+    private ordersService: OrdersService,
+    private chronometerService: ChronometerService
+    ) { }
 
   ngOnInit() {
     this.bringOrdersInKitchen();
@@ -53,6 +57,16 @@ SendToReadyOrders(order) {
     console.log('ANVORGEZA');
     this.ordersService.changeStatus(order.payload.doc.id);
   }
+}
+
+timeInKitcken(order) {
+  this.timeInKitchenIs = this.chronometerService.startCounterTime(new Date(order.payload.doc.data().startTime.toDate()));
+}
+
+updateTimeInKitchen(order) {
+  setTimeout( () => {
+    this.timeInKitcken(order);
+  }, 1000);
 }
 
 }
