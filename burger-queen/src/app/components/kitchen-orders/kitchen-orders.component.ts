@@ -12,8 +12,8 @@ import { ChronometerService } from 'src/app/services/chronometer.service';
 export class KitchenOrdersComponent implements OnInit {
   // ordersBrought:AngularFirestoreCollection<OrderModel>;
   ordersBrought: any;
-  orderIsChecked: boolean = false;
-  timeInKitchenIs: string = '';
+  orderIsChecked = false;
+  timeInKitchenIs = '';
 
   constructor(
     private ordersService: OrdersService,
@@ -43,12 +43,12 @@ bringOrdersInKitchen() {
 
 checkCheckbox($event, sendId: string) {
   if ($event.target.checked === true) {
-    console.log("HOLI");
+    console.log('HOLI');
     console.log('sendId: ', sendId);
     this.orderIsChecked = true;
     } else {
       this.orderIsChecked = false;
-      console.log("CHAI");
+      console.log('CHAI');
     }
 }
 
@@ -60,13 +60,14 @@ SendToReadyOrders(order) {
 }
 
 timeInKitcken(order) {
-  this.timeInKitchenIs = this.chronometerService.startCounterTime(new Date(order.payload.doc.data().startTime.toDate()));
+  // this.timeInKitchenIs = this.chronometerService.startCounterTime(new Date(order.payload.doc.data().startTime.toDate()));
+  this.timeInKitchenIs = this.chronometerService.startCounterTime((order.payload.doc.data().startTime.toDate()));
 }
 
 updateTimeInKitchen(order) {
   setTimeout( () => {
     this.timeInKitcken(order);
-  }, 1000);
+  }, 5000);
 }
 
 }

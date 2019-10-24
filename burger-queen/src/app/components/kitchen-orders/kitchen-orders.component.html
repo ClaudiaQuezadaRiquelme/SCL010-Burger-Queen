@@ -3,10 +3,10 @@
   <div class="kitchenIcon"><img src="./../../../assets/images/BurgerClownQueenLogo1-02.png" alt="Kitchen imagery"></div>
   <div class="kOrdersWrapper">
     <div class="priOrder" *ngFor="let order of ordersBrought">
-      <span>
+      <div class="timeBoard">
         <li class="orderTimeKitchen">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</li>
-        <li>{{ timeInKitchenIs }} {{ updateTimeInKitchen(order) }}</li>
-      </span>
+        <li class="chronoJail">{{ timeInKitchenIs }} {{ updateTimeInKitchen(order) }}</li>
+      </div>
       <span class="customerNameTd">{{ order.payload.doc.data().customerName }}</span>
       <!-- <span class="orderIdTd">{{ order.payload.doc.id }}</span> -->
       <span class="orderTotalTd">

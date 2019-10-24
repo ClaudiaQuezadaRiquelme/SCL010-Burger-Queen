@@ -213,7 +213,7 @@ span {
 .orderTimeKitchen {
   font-style: normal;
   font-weight: bold;
-  font-size: 1 em;
+  font-size: 0.5em;
   color: #FFAD09;
   line-height: 27px;
 
@@ -440,6 +440,18 @@ span {
   padding: 3%;
 }
 
+/* probando */
+.chronoJail{
+  max-width: 80%;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.timeBoard{
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%;
+}
 
 /*Classes definition to get used y ngClass directive when necessary*/
 .readyToDeliver,
