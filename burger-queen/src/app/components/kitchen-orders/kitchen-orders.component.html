@@ -5,7 +5,8 @@
     <div class="priOrder" *ngFor="let order of ordersBrought">
       <div class="timeBoard">
         <li class="orderTimeKitchen">{{ order.payload.doc.data().startTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</li>
-        <li class="chronoJail">{{ timeInKitchenIs }} {{ updateTimeInKitchen(order) }}</li>
+        <li class="chronoJail" [attr.id]="'time_' + order.payload.doc.id"></li>
+        <li>{{ updateTimeInKitchen(order) }}</li>
       </div>
       <span class="customerNameTd">{{ order.payload.doc.data().customerName }}</span>
       <!-- <span class="orderIdTd">{{ order.payload.doc.id }}</span> -->

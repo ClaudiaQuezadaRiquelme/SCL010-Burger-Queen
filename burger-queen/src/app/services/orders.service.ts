@@ -186,7 +186,6 @@ export class OrdersService {
     this.firebase.collection('orders').doc(id).update({
       status: 'toDeliver'
     });
-    console.log('PATATA FRITA');
   }
 
 }
