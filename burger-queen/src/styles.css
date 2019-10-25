@@ -113,7 +113,7 @@ li {
   flex-direction: column;
   width: 70%;
   margin-top: 6%;
-  margin-left: 24%;
+  margin-left: 20%;
   margin-bottom: 2%;
 
 }
@@ -195,7 +195,8 @@ span {
 .kitchenIcon img {
   float: left;
   z-index: 4;
-  margin-left: 100%;
+  margin-left: 80%;
+  margin-top: -50%;
 }
 
 .readyIcon {
@@ -222,7 +223,7 @@ span {
 .currentOrdersWrapper {
   display: flex;
   justify-content: center;
-  margin-left: 15%;
+  /* margin-left: 15%; */
   padding-bottom: 3%;
 
 }
@@ -290,7 +291,7 @@ span {
   border-radius: 5px;
   border: 0;
   margin-top: 1%;
-  margin-left: 49%;
+  margin-left: 20%;
   cursor: pointer;
   width: 80%;
   margin-bottom: 3%;
@@ -403,7 +404,7 @@ span {
   font-weight: bold;
   padding: 1%;
   border: 3px solid #4f4f4f;
-  background:rgba(243, 241, 241, 0.4);
+  background: rgba(243, 241, 241, 0.4);
   width: 150%;
   margin-left: -52%;
   padding: 3%;
@@ -441,17 +442,27 @@ span {
 }
 
 /* probando */
-.chronoJail{
+.chronoJail {
   max-width: 80%;
   font-size: 0.8em;
   font-weight: bold;
 }
 
-.timeBoard{
+.timeBoard {
   display: flex;
   flex-direction: column;
   margin-left: 2%;
 }
+
+.clockIcon img {
+  float: left;
+  z-index: 4;
+  margin-left: 50%;
+  margin-top: 80%;
+  width: 100%;
+}
+
+
 
 /*Classes definition to get used y ngClass directive when necessary*/
 .readyToDeliver,
@@ -486,6 +497,7 @@ span {
 
 }
 
-.fa-share-square:hover, .fa-check-square:hover {
+.fa-share-square:hover,
+.fa-check-square:hover {
   background: #FF8E09;
 }
