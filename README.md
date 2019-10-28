@@ -1,5 +1,5 @@
 # Burger Clown Queens
-##[Deploy del Proyecto](https://burguerqueen-ff21a.firebaseapp.com/)
+**[Deploy del Proyecto](https://burguerqueen-ff21a.firebaseapp.com/)**
 
 ## Presentación
 
@@ -132,4 +132,4 @@ Yo como mesero/a debería poder ver las órdenes que estén listas para servir a
   * Ver listado de órdenes terminadas
   * Marcar pedidos que han sido entregados
  
-##[Deploy del Proyecto](https://burguerqueen-ff21a.firebaseapp.com/)
+**[Deploy del Proyecto](https://burguerqueen-ff21a.firebaseapp.com/)**
